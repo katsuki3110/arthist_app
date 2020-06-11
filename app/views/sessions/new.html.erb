@@ -8,6 +8,9 @@
   <%= form.label          :password %>
   <%= form.password_field :password %>
 
+  <%= form.check_box :remember_me %>
+  <%= form.label     :次回から自動でログイン %>
+
   <%= form.submit "ログイン" %>
 
 <% end %>
