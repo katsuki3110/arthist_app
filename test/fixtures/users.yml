@@ -3,13 +3,13 @@
 one:
   name: one
   email: one@example
-  password_digest: MyString
+  password_digest: <%= User.digest('password') %>
   remember_digest: MyString
   reset_digest: MyString
 
 two:
   name: teo
   email: two@example
-  password_digest: MyString
+  password_digest: <%= User.digest('password') %>
   remember_digest: MyString
   reset_digest: MyString

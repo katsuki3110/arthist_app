@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  #パスワードのハッシュ化
+  def User.digest(password)
+    BCrypt::Password.create(password)
+  end
+
 
   private
 
