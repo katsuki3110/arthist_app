@@ -1,0 +1,15 @@
+
+
+
+<%= form_with(model: @user, local: true) do |form| %>
+  <%= render 'layouts/error_message', object: form.object %>
+
+  <%= form.label      :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label      :email %>
+  <%= form.text_field :email %>
+
+  <%= form.submit "新規登録" %>
+
+<% end %>
