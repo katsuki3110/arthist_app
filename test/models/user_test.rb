@@ -47,15 +47,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "userが削除されれば紐づくsingも削除される" do
+  test "userが削除されても紐づくsingは削除されない" do
     @user.save
     @user.sings.create!(name:    "test",
-                        link:    "test_link",
-                        arthist: "arthist")
-    assert_difference 'Sing.count', -1 do
+                        link:    "test_link")
+    assert_no_difference 'Sing.count' do
       @user.destroy
     end
-
   end
 
 end

@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_124029) do
+ActiveRecord::Schema.define(version: 2020_06_13_080311) do
 
   create_table "arthists", force: :cascade do |t|
-    t.integer "sing_id"
     t.string "name"
     t.string "link"
     t.boolean "debut", default: false
@@ -24,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_124029) do
 
   create_table "sings", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "arthist_id"
     t.string "name"
     t.string "link"
     t.datetime "created_at", null: false
