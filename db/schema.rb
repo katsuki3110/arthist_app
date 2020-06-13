@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_120540) do
+ActiveRecord::Schema.define(version: 2020_06_12_124029) do
+
+  create_table "arthists", force: :cascade do |t|
+    t.integer "sing_id"
+    t.string "name"
+    t.string "link"
+    t.boolean "debut", default: false
+    t.date "debut_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sings", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
