@@ -2,14 +2,14 @@
 
 one:
   user_id: 1
-  name: MyString
+  name: one
   link: MyString
   debut: false
   debut_date: 2020-06-13
 
 two:
   user_id: 1
-  name: MyString
+  name: one
   link: MyString
   debut: false
   debut_date: 2020-06-13

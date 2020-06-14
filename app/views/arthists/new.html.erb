@@ -1,0 +1,24 @@
+
+
+
+<%= form_with(model: @arthist, local: true) do |form| %>
+  <%= render 'layouts/error_message', object: form.object %>
+
+  <%= form.label      :name %>
+  <%= form.text_field :name %>
+
+
+  <%= form.fields_for :sings do |sing| %>
+
+    <%= sing.label      :name %>
+    <%= sing.text_field :name %>
+
+    <%= sing.label      :link %>
+    <%= sing.text_field :link %>
+
+  <% end %>
+
+
+  <%= form.submit "おすすめ曲をシェア" %>
+
+<% end %>

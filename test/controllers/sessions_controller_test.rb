@@ -20,4 +20,9 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_template 'sessions/new'
   end
 
+  test "ログアウト失敗する（ログインしていない）" do
+    delete session_path(@user)
+    assert_redirected_to new_session_path
+  end
+
 end
