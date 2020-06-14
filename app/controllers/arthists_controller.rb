@@ -2,6 +2,14 @@ class ArthistsController < ApplicationController
   before_action :logged_in_user
   before_action :arthist_dup,    only: :create
 
+  def index
+    @arthists = Arthist.order(name: "DESC").all
+  end
+
+  def show
+    @arthist = 
+  end
+
   def new
     @arthist = Arthist.new
     @arthist.sings.build
@@ -15,6 +23,18 @@ class ArthistsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+    #admin権限者のみ
   end
 
   private

@@ -1,0 +1,11 @@
+<%= form_with(model: @sing, local: true) do |form| %>
+
+  <%= form.label :曲名 %>
+  <%= form.text_field :name %>
+
+  <%= form.label :リンク先 %>
+  <%= form.text_field :link %>
+
+  <%= form.submit '更新する' %>
+
+<% end %>

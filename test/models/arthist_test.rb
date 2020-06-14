@@ -11,7 +11,7 @@ class ArthistTest < ActiveSupport::TestCase
     assert_not @arthist.valid?
   end
 
-  test "arthistが削除されれれば紐づくsingは削除される" do
+  test "arthistが削除されれば紐づくsingは削除される" do
     @arthist.save
     @arthist.sings.create!(name: "test",
                            link: "test_link")

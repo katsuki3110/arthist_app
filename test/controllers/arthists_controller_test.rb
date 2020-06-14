@@ -2,6 +2,11 @@ require 'test_helper'
 
 class ArthistsControllerTest < ActionDispatch::IntegrationTest
 
+  def setup
+    @user = users(:one)
+    @arthist = arthists(:one)
+  end
+
   test "newに失敗する（ログインしていない）" do
     get new_arthist_path
     assert_redirected_to new_session_path

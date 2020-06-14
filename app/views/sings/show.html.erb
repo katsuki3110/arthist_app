@@ -1,0 +1,19 @@
+<h1>曲詳細</h1>
+
+<div class="">
+  曲名：<%= @sing.name %>
+</div>
+
+<div class="">
+  曲リンク：<%= @sing.link %>
+</div>
+
+<div class="">
+  アーティスト名：<%= @sing.arthist.name %>
+</div>
+
+
+<ul>
+  <li><%= link_to '編集', edit_sing_path(@sing) %></li>
+  <li><%= link_to '削除', sing_path(@sing), {method: :delete, data: {confirm: "本当にこの曲を削除しますか？"}} %></li>
+</ul>
