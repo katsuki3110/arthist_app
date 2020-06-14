@@ -4,8 +4,10 @@ one:
   name: one
   email: one@example
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 two:
   name: teo
   email: two@example
   password_digest: <%= User.digest('password') %>
+  admin: false

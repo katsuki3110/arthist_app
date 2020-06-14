@@ -1,5 +1,6 @@
 <ul>
   <li><%= link_to '曲一覧', sings_path %></li>
+  <li><%= link_to 'アーティスト一覧', arthists_path %></li>
   <% if current_user.present? %>
     <li><%= link_to 'ログアウト', session_path(current_user), method: :delete %></li>
 

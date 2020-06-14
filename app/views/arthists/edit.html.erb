@@ -1,0 +1,15 @@
+<h1>アーティスト情報編集</h1>
+
+<%= form_with(model: @arthist, local: true) do |form| %>
+  <%= render 'layouts/error_message', object: form.object %>
+
+  <%= form.label :アーティスト名 %>
+  <%= form.text_field :name %>
+
+  <%= form.label :関連リンク %>
+  <%= form.text_field :link %>
+
+
+  <%= form.submit '更新する' %>
+
+<% end %>

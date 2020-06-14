@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_080311) do
+ActiveRecord::Schema.define(version: 2020_06_14_090217) do
 
   create_table "arthists", force: :cascade do |t|
     t.integer "user_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_080311) do
     t.string "reset_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
   end
 
 end

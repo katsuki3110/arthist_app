@@ -9,7 +9,7 @@ class SingsController < ApplicationController
   def show
     @sing = Sing.find_by(id: params[:id])
     unless @sing.present?
-      redirect_to root_path
+      redirect_to sings_path
     end
   end
 

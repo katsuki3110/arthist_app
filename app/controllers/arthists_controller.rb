@@ -1,13 +1,17 @@
 class ArthistsController < ApplicationController
-  before_action :logged_in_user
-  before_action :arthist_dup,    only: :create
+  before_action :logged_in_user,      only: [:new, :create]
+  before_action :arthist_dup,         only: :create
+  before_action :current_user_admin?, only: :destroy
 
   def index
     @arthists = Arthist.order(name: "DESC").all
   end
 
   def show
-    @arthist = 
+    @arthist = Arthist.find_by(id: params[:id])
+    unless @arthist.present?
+      redirect_to arthists_path
+    end
   end
 
   def new
@@ -26,16 +30,34 @@ class ArthistsController < ApplicationController
   end
 
   def edit
-
+    @arthist = Arthist.find_by(id: params[:id])
+    unless @arthist.present?
+      redirect_to arthists_path
+    end
   end
 
   def update
-
+    @arthist = Arthist.find_by(id: params[:id])
+    if @arthist.update(arthist_edit_params)
+      flash[:success] = "更新しました"
+      redirect_to arthist_path(@arthist)
+    else
+      render 'arthists/edit'
+    end
   end
 
   def destroy
     #admin権限者のみ
+    @arthist = Arthist.find_by(id: params[:id])
+    if @arthist.present?
+      @arthist.destroy
+      flash[:info] = "削除しました"
+      redirect_to arthists_path
+    else
+      redirect_to root_path
+    end
   end
+
 
   private
 
@@ -45,6 +67,10 @@ class ArthistsController < ApplicationController
                                                         :name,
                                                         :link,
                                                         :_destroy])
+    end
+
+    def arthist_edit_params
+      params.require(:arthist).permit(:name, :link)
     end
 
     def arthist_dup
@@ -60,5 +86,11 @@ class ArthistsController < ApplicationController
         end
       end
     end
+
+    def current_user_admin?
+      #ログインユーザーはadmin?
+      redirect_to arthists_path unless current_user.admin?
+    end
+
 
 end
