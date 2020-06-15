@@ -1,6 +1,5 @@
 class Arthist < ApplicationRecord
 
-  belongs_to :user
   has_many :sings, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 30}

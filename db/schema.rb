@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2020_06_14_090217) do
 
   create_table "arthists", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.string "link"
     t.boolean "debut", default: false
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_06_14_090217) do
 
   create_table "sings", force: :cascade do |t|
     t.integer "arthist_id"
-    t.string "name"
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
