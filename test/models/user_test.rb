@@ -47,4 +47,16 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "userが削除されても紐づくsingは削除されない" do
+    @user.save
+    Arthist.create!(name: "arthist_name",
+                    sings_attributes:{"0": {user_id: @user.id,
+                                            link: "sing_link"}})
+    assert_no_difference 'Arthist.count' do
+      assert_no_difference 'Sing.count' do
+        @user.destroy
+      end
+    end
+  end
+
 end

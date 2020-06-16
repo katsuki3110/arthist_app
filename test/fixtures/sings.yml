@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user_id: 1
   arthist_id: 1
   link: MyString
 
 two:
+  user_id: 2
   arthist_id: 2
   link: MyString

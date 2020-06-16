@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_090217) do
   end
 
   create_table "sings", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "arthist_id"
     t.string "link"
     t.datetime "created_at", null: false

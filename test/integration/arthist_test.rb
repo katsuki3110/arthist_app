@@ -2,14 +2,20 @@ require 'test_helper'
 
 class ArthistTestTest < ActionDispatch::IntegrationTest
 
+  def setup
+    @user = users(:one)
+  end
+
   test "arthistとsingを同時に登録する" do
+    log_in_as @user
     get new_arthist_path
     #登録する
     assert_template 'arthists/new'
     assert_difference 'Arthist.count', 1 do
       assert_difference 'Sing.count', 1 do
         post arthists_path, params: {arthist: {name: "arthist_name",
-                                               sings_attributes: {"0": {link: "sing_link"}}
+                                               sings_attributes: {"0": {user_id: @user.id,
+                                                                        link: "sing_link"}}
         }}
       end
     end
@@ -20,7 +26,8 @@ class ArthistTestTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Arthist.count' do
       assert_no_difference 'Sing.count' do
         post arthists_path, params: {arthist: {name: "arthist_name",
-                                               sings_attributes: {"0": {link: ""}}
+                                               sings_attributes: {"0": {user_id: @user.id,
+                                                                        link: ""}}
         }}
       end
     end
@@ -29,7 +36,8 @@ class ArthistTestTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Arthist.count' do
       assert_difference 'Sing.count', 1 do
         post arthists_path, params: {arthist: {name: "arthist_name",
-                                               sings_attributes: {"0": {link: "sing_link"}}
+                                               sings_attributes: {"0": {user_id: @user.id,
+                                                                        link: "sing_link"}}
         }}
       end
     end
@@ -37,12 +45,14 @@ class ArthistTestTest < ActionDispatch::IntegrationTest
   end
 
   test "arthistとsingを同時に登録に失敗する" do
+    log_in_as @user
     get new_arthist_path
     assert_template 'arthists/new'
     assert_no_difference 'Arthist.count' do
       assert_no_difference 'Sing.count' do
         post arthists_path, params: {arthist: {name: "",
-                                               sings_attributes: {"0": {link: "sing_link"}}
+                                               sings_attributes: {"0": {user_id: @user.id,
+                                                                        link: "sing_link"}}
         }}
       end
     end

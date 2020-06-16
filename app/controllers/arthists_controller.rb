@@ -1,4 +1,5 @@
 class ArthistsController < ApplicationController
+  before_action :logged_in_user,      only: [:new, :create]
   before_action :arthist_dup,         only: :create
   before_action :current_user_admin?, only: :destroy
 
@@ -22,6 +23,8 @@ class ArthistsController < ApplicationController
 
   def create
     @arthist = Arthist.new(arthist_params)
+    sing = @arthist.sings.first
+    sing.link = sing.link.last(11)
     if @arthist.save
       flash[:info] = "シェアされました"
       redirect_to sings_path
@@ -65,6 +68,7 @@ class ArthistsController < ApplicationController
     def arthist_params
       params.require(:arthist).permit(:name,
                                       sings_attributes:[:id,
+                                                        :user_id,
                                                         :link,
                                                         :_destroy])
     end
@@ -76,9 +80,11 @@ class ArthistsController < ApplicationController
     def arthist_dup
       @arthist = Arthist.find_by(name: params[:arthist][:name])
       if @arthist.present?
-        sing = @arthist.sings.build(link: params[:arthist][:sings_attributes][:"0"][:link])
+        sing = @arthist.sings.build(user_id: current_user.id,
+                                    link: params[:arthist][:sings_attributes][:"0"][:link])
+        sing.link = sing.link.last(11)
         if sing.save
-          flash[:info] = "シェアしました"
+          flash[:info] = "シェアされました"
           redirect_to sings_path
         else
           render 'arthists/new'

@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token
 
+  has_many :sings
 
   validates :name,  presence: true, length: {maximum: 30}
   validates :email, presence: true, uniqueness: {case_sensitive: false}
