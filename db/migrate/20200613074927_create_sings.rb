@@ -4,6 +4,7 @@ class CreateSings < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :arthist_id
       t.string :link
+      t.integer :video_flg
 
       t.timestamps
     end

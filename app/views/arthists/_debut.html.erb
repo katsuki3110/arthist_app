@@ -1,0 +1,7 @@
+<% if @arthist.debut? %>
+  <%= link_to 'デビュー報告を取り消す', debut_destroy_arthist_path(@arthist), {method: :delete,
+                                                                           remote: true} %>
+<% else %>
+  <%= link_to 'デビューを報告する', debut_create_arthist_path(@arthist), {method: :post,
+                                                                       remote: true} %>
+<% end %>

@@ -1,9 +1,10 @@
 class SingsController < ApplicationController
   before_action :logged_in_user, only: :destroy
   before_action :correct_user,   only: :destroy
+  before_action :debut
 
   def index
-    @sings = Sing.order("RANDOM()").all
+    @sings = Sing.order(created_at: "DESC").all
     @arthist_flg = "1"
   end
 
