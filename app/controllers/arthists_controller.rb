@@ -23,9 +23,9 @@ class ArthistsController < ApplicationController
   end
 
   def create
-    #arthistが初登録
-    @arthist = Arthist.new(arthist_params)
-    sing = @arthist.sings.first
+    #初登録のarthist
+    @arthist = Arthist.new(changed_space(arthist_params))
+    sing = @arthist.sings.last
     sing.user_id = current_user.id
 
     if sing.link[12] == "y"
@@ -113,12 +113,21 @@ class ArthistsController < ApplicationController
       params.require(:arthist).permit(:name, :link)
     end
 
+    def changed_space(arthist_params)
+      #アーティスト名の全角スペースを半角スペースに変換
+      arthist_params.each do |key, value|
+        if key == "name"
+          arthist_params[key] = value.tr("　", " ")
+        end
+      end
+    end
+
     def arthist_dup
-      @arthist = Arthist.find_by(name: params[:arthist][:name])
+      @arthist = Arthist.find_by(name: changed_space(arthist_params)[:name])
       if @arthist.present?
         #arthistが登録ずみ
         sing = @arthist.sings.build(user_id: current_user.id,
-                                    link: params[:arthist][:sings_attributes][:"0"][:link])
+                                    link: arthist_params[:sings_attributes][:"0"][:link])
 
         if sing.link[12] == "y"
           #youtubeを投稿
@@ -133,7 +142,7 @@ class ArthistsController < ApplicationController
           sing.video_flg = 0
         end
 
-        if sing.save
+        if sing.video_flg != 0 && sing.save
           flash[:info] = "シェアされました"
           redirect_to sings_path
         else

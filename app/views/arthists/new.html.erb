@@ -5,13 +5,13 @@
   <%= render 'layouts/error_message', object: form.object %>
 
   <%= form.label      :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, autocomplete: "off" %>
 
 
   <%= form.fields_for :sings do |sing| %>
 
     <%= sing.label      :link %>
-    <%= sing.text_field :link %>
+    <%= sing.text_field :link, autocomplete: "off" %>
 
   <% end %>
 

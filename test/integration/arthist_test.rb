@@ -13,24 +13,26 @@ class ArthistTestTest < ActionDispatch::IntegrationTest
     assert_template 'arthists/new'
     assert_difference 'Arthist.count', 1 do
       assert_difference 'Sing.count', 1 do
-        post arthists_path, params: {arthist: {name: "arthist_name",
+        post arthists_path, params: {arthist: {name: "arthist　name",
                                                sings_attributes: {"0": {user_id: @user.id,
                                                                         link: "https://www.youtube.."}}
         }}
       end
     end
+    assert_equal Arthist.last.name, "arthist name"
     assert_redirected_to sings_path
-    #同じアーティストの曲(youtube)を登録する(成功)
+    #同じアーティストの曲(youtube)を投稿する(成功)
     get new_arthist_path
     assert_template 'arthists/new'
     assert_no_difference 'Arthist.count' do
       assert_difference 'Sing.count', 1 do
-        post arthists_path, params: {arthist: {name: "arthist_name",
+        post arthists_path, params: {arthist: {name: "arthist　name",
                                                sings_attributes: {"0": {user_id: @user.id,
                                                                         link: "https://www.youtube.."}}
         }}
       end
     end
+    assert_equal Arthist.last.name, "arthist name"
     assert_redirected_to sings_path
     #instagramの動画を投稿する
     get new_arthist_path
@@ -44,7 +46,7 @@ class ArthistTestTest < ActionDispatch::IntegrationTest
       end
     end
     assert_redirected_to sings_path
-    #同じアーティストの曲(instagram)を登録する(成功)
+    #同じアーティストの曲(instagram)を投稿する(成功)
     get new_arthist_path
     assert_template 'arthists/new'
     assert_no_difference 'Arthist.count' do
@@ -56,7 +58,7 @@ class ArthistTestTest < ActionDispatch::IntegrationTest
       end
     end
     assert_redirected_to sings_path
-    #同じアーティストの曲を登録する(失敗)
+    #同じアーティストの曲を投稿する(失敗)
     get new_arthist_path
     assert_template 'arthists/new'
     assert_no_difference 'Arthist.count' do
