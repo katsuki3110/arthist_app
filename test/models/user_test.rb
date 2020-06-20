@@ -3,10 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(name:  "test",
-                     email: "test@example",
-                     password:              "password",
-                     password_confirmation: "password")
+    @user = users(:one)
+    @sing = sings(:one)
   end
 
   test "name空白でない" do
@@ -56,6 +54,15 @@ class UserTest < ActiveSupport::TestCase
       assert_no_difference 'Sing.count' do
         @user.destroy
       end
+    end
+  end
+
+  test "userが削除されれば紐づくlikeは削除される" do
+    @user.save
+    @sing.save
+    @user.likes.create!(sing_id: @sing.id)
+    assert_difference 'Like.count', -1 do
+      @user.destroy
     end
   end
 
