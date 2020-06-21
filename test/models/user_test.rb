@@ -28,8 +28,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not other_user.valid?
   end
 
-  test "emailは一意である（大小区別しない）" do
-    other_mail = "InvaLiD@ExamPLe"
+  test "emailは大小区別しない" do
+    other_mail = "One@ExamPLe"
     @user.email = other_mail
     @user.save
     assert_equal other_mail.downcase, @user.reload.email
@@ -40,8 +40,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "passwordは8文字以上である" do
-    @user.password = "a" * 7
+  test "passwordは6文字以上である" do
+    @user.password = "a" * 5
     assert_not @user.valid?
   end
 

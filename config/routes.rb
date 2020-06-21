@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#top'
 
+  resources :likes,    only:[:create, :destroy]
   resources :arthists do
     member do
       post   :debut_create

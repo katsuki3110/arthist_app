@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ArthistTestTest < ActionDispatch::IntegrationTest
+class ArthistIntegrationTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:one)

@@ -1,0 +1,4 @@
+$('#like-<%= @sing.id %>').html(
+    "<%= escape_javascript(render partial: 'likes/like_form',
+                                  locals: {sing: @sing}) %>"
+)
