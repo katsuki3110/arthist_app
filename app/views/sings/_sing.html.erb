@@ -8,7 +8,7 @@
   <% if sing.video_flg == 1 %>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= sing.link %>" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <% elsif sing.video_flg == 2 %>
-    <%= render 'sings/instagram_link', sing: sing %>
+    <iframe width="560" height="315" src="https://instagram.com/p/<%= sing.link %>/embed" frameborder="0" scrolling="no"></iframe>
   <% end %>
 </div>
 
