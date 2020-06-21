@@ -1,15 +1,28 @@
-<ul>
-  <li><%= link_to 'Top', root_path %></li>
-  <li><%= link_to '曲一覧', sings_path %></li>
-  <li><%= link_to 'アーティスト一覧', arthists_path %></li>
-  <li><%= link_to '曲投稿', new_arthist_path %></li>
-  <% if current_user.present? %>
-    <li><%= link_to 'お気に入り曲一覧', sings_path(like_flg: "1") %></li>
-    <li><%= link_to 'ログアウト', session_path(current_user), method: :delete %></li>
+<div class="header_container">
+  <div class="header_inner">
 
-  <% else %>
-    <li><%= link_to 'ログイン', new_session_path %></li>
-    <li><%= link_to '新規登録', new_user_path %></li>
+    <ul class="header_left">
+      <li class="Top"><%= link_to 'Top', root_path, {class: "link header_link"} %></li>
+    </ul>
 
-  <% end %>
-</ul>
+    <ul class="header_center">
+      <li><%= link_to '曲一覧', sings_path, {class: "link header_link"} %></li>
+      <li><%= link_to 'アーティスト一覧', arthists_path, {class: "link header_link"} %></li>
+      <% if current_user.present? %>
+        <li><%= link_to 'お気に入り曲一覧', sings_path(like_flg: "1"), {class: "link header_link"} %></li>
+      <% end %>
+    </ul>
+
+    <ul class="header_right">
+      <li><%= link_to '曲投稿', new_arthist_path, {class: "link header_link"} %></li>
+      <% if current_user.present? %>
+        <li><%= link_to 'ログアウト', session_path(current_user), {class: "link header_link", method: :delete}  %></li>
+
+      <% else %>
+        <li><%= link_to 'ログイン', new_session_path, {class: "link header_link"} %></li>
+        <li><%= link_to '新規登録', new_user_path, {class: "link header_link"} %></li>
+
+      <% end %>
+    </ul>
+  </div>
+</div>
