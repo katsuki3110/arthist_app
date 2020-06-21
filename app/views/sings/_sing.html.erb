@@ -16,6 +16,8 @@
   <%= link_to "削除", sing_path(sing), {method: :delete, data:{confirm: "削除しますか？"}} %>
 <% end %>
 
-<div id="like-<%= sing.id %>">
-  <%= render 'likes/like_form', sing: sing %>
-</div>
+<% if @like_flg != "1" %>
+  <div id="like-<%= sing.id %>">
+    <%= render 'likes/like_form', sing: sing %>
+  </div>
+<% end %>

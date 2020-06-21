@@ -27,20 +27,7 @@ class ArthistsController < ApplicationController
     @arthist = Arthist.new(changed_space(arthist_params))
     sing = @arthist.sings.last
     sing.user_id = current_user.id
-
-    if sing.link[12] == "y"
-      #youtubeを投稿
-      sing.link = sing.link.last(11)
-      sing.video_flg = 1
-    elsif sing.link[12] == "i"
-      #instagramを投稿
-      sing.link = sing.link[28,11]
-      sing.video_flg = 2
-    else
-      flash[:danger] = "指定のリンクはシェア出来ません"
-      sing.video_flg = 0
-    end
-
+    video_judge(sing)
     if sing.video_flg != 0 && @arthist.save
       flash[:info] = "シェアされました"
       redirect_to sings_path
@@ -128,20 +115,7 @@ class ArthistsController < ApplicationController
         #arthistが登録ずみ
         sing = @arthist.sings.build(user_id: current_user.id,
                                     link: arthist_params[:sings_attributes][:"0"][:link])
-
-        if sing.link[12] == "y"
-          #youtubeを投稿
-          sing.link = sing.link.last(11)
-          sing.video_flg = 1
-        elsif sing.link[12] == "i"
-          #instagramを投稿
-          sing.link = sing.link[28,11]
-          sing.video_flg = 2
-        else
-          flash[:danger] = "指定のリンクはシェア出来ません"
-          sing.video_flg = 0
-        end
-
+        video_judge(sing)
         if sing.video_flg != 0 && sing.save
           flash[:info] = "シェアされました"
           redirect_to sings_path

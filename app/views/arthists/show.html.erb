@@ -9,7 +9,10 @@
 </div>
 
 <div class="">
-  関連リンク：<%= @arthist.link %>
+  関連リンク：
+  <% if @arthist.link.present? %>
+    <%= link_to @arthist.link, @arthist.link, {target: "_blank"} %>
+  <% end %>
 </div>
 
 <ul>

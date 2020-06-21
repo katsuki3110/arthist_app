@@ -4,7 +4,14 @@ class SingsController < ApplicationController
   before_action :debut
 
   def index
-    @sings = Sing.order(created_at: "DESC").all
+    @like_flg = params[:like_flg]
+    if @like_flg == "1"
+      @sings = current_user.like_sings.order(created_at: "DESC")
+      @title = "お気に入り曲一覧"
+    else
+      @sings = Sing.order(created_at: "DESC").all
+      @title = "全曲一覧"
+    end
     @arthist_flg = "1"
   end
 

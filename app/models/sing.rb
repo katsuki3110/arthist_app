@@ -3,7 +3,7 @@ class Sing < ApplicationRecord
 
   belongs_to :arthist
   has_many :likes, dependent: :destroy
-  has_many :like_sings, through: :likes, foreign_key: :sing_id
+  has_many :like_users, through: :likes, source: :user
 
   validates :link, presence: true
 
