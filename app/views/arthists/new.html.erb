@@ -1,21 +1,29 @@
+<div class="arthist_container">
+  <div class="arthist_inner">
+    <h1>おすすめ曲は？</h1>
+    <%= form_with(model: @arthist, local: true) do |form| %>
+      <%= render 'layouts/error_message', object: form.object %>
+
+      <div class="arthist_modal">
+        <div class="arthist_name">
+          <%= form.label      :アーティスト名, {class: "form_label arthist_label"} %>
+          <%= form.text_field :name, {class: "form_field", autocomplete: "off"} %>
+        </div>
+
+        <%= form.fields_for :sings do |sing| %>
+
+          <div class="arthist_link">
+            <%= sing.label      :曲のurl, {class: "form_label sing_label"} %>
+            <%= sing.text_field :link, {class: "form_field", autocomplete: "off"} %>
+            <p>※youtubeまたはinstagramのurlを入力してください</p>
+          </div>
+
+        <% end %>
 
 
+        <%= form.submit "おすすめ曲をシェア", {class: "btn arthist_btn"} %>
+      </div>
 
-<%= form_with(model: @arthist, local: true) do |form| %>
-  <%= render 'layouts/error_message', object: form.object %>
-
-  <%= form.label      :name %>
-  <%= form.text_field :name, autocomplete: "off" %>
-
-
-  <%= form.fields_for :sings do |sing| %>
-
-    <%= sing.label      :link %>
-    <%= sing.text_field :link, autocomplete: "off" %>
-
-  <% end %>
-
-
-  <%= form.submit "おすすめ曲をシェア" %>
-
-<% end %>
+    <% end %>
+  </div>
+</div>

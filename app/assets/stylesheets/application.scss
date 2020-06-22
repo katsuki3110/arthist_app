@@ -14,6 +14,29 @@ li{
  list-style: none;
 }
 
+.flash{
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  z-index: 10;
+  text-align: center;
+}
+
+.message-info{
+  background-color: #9dd8f6;
+}
+
+.message-success{
+  background-color: #dbedb7;
+}
+
+.message-danger{
+  background-color: #df7474;
+}
+
 .body_container{
  margin-top: 60px;
 }
@@ -129,4 +152,34 @@ li{
 }
 
 
-//**session**
+//**arthist**
+
+.arthist_container{
+  height: 100%;
+}
+
+.arthist_inner h1{
+  text-align: center;
+  margin-top: 120px;
+}
+
+.arthist_modal{
+  width: 500px;
+  margin: 0 auto;
+}
+
+.arthist_label{
+  font-size: 20px;
+}
+
+.arthist_link{
+  margin-top: 20px;
+}
+
+.arthist_link p{
+  display: inline;
+}
+
+.arthist_btn{
+  margin-top: 20px;
+}

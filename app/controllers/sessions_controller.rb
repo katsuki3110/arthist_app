@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == "1"? remember(user):forget(user)
       redirect_to root_path
     else
-      flash[:danger] = "メールアドレスまたはパスワードが間違っています"
+      flash.now[:danger] = "メールアドレスまたはパスワードが間違っています"
       render 'sessions/new'
     end
   end
