@@ -3,11 +3,13 @@
 one:
   user_id: 1
   arthist_id: 1
+  name: MyString
   link: MyString
   video_flg : 1
 
 two:
   user_id: 2
   arthist_id: 2
+  name: MyString
   link: MyString
   video_flg : 1

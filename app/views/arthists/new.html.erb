@@ -12,7 +12,12 @@
 
         <%= form.fields_for :sings do |sing| %>
 
-          <div class="arthist_link">
+          <div class="">
+            <%= sing.label      :曲名, {class: "form_label sing_label"} %>
+            <%= sing.text_field :name, {class: "form_field", autocomplete: "off"} %>
+          </div>
+
+          <div class="">
             <%= sing.label      :曲のurl, {class: "form_label sing_label"} %>
             <%= sing.text_field :link, {class: "form_field", autocomplete: "off"} %>
             <p>※youtubeまたはinstagramのurlを入力してください</p>

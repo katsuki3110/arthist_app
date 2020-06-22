@@ -49,6 +49,7 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     Arthist.create!(name: "arthist_name",
                     sings_attributes:{"0": {user_id: @user.id,
+                                            name: "sing_name",
                                             link: "sing_link"}})
     assert_no_difference 'Arthist.count' do
       assert_no_difference 'Sing.count' do

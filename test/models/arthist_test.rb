@@ -13,7 +13,9 @@ class ArthistTest < ActiveSupport::TestCase
 
   test "arthistが削除されれば紐づくsingは削除される" do
     @arthist.save
-    @arthist.sings.create!(user_id: 1, link: "test_link")
+    @arthist.sings.create!(user_id: 1,
+                           name: "sing_name",
+                           link: "test_link")
     assert_difference 'Sing.count', -1 do
       @arthist.destroy
     end

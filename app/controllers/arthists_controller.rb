@@ -92,6 +92,7 @@ class ArthistsController < ApplicationController
     def arthist_params
       params.require(:arthist).permit(:name,
                                       sings_attributes:[:id,
+                                                        :name,
                                                         :link,
                                                         :_destroy])
     end
@@ -114,6 +115,7 @@ class ArthistsController < ApplicationController
       if @arthist.present?
         #arthistが登録ずみ
         sing = @arthist.sings.build(user_id: current_user.id,
+                                    name: arthist_params[:sings_attributes][:"0"][:name],
                                     link: arthist_params[:sings_attributes][:"0"][:link])
         video_judge(sing)
         if sing.video_flg != 0 && sing.save

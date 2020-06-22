@@ -18,6 +18,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
       assert_no_difference 'Sing.count' do
         post arthists_path, params: {arthist: {name: "arthist_name",
                                                sings_attributes:{"0": {user_id: @user.id,
+                                                                       name: "sing_name",
                                                                        link: "sing_link"}}
         }}
       end
@@ -32,6 +33,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
       assert_no_difference 'Sing.count' do
         post arthists_path, params: {arthist: {name: "arthist_name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: ""}}
         }}
       end
@@ -84,6 +86,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
       assert_difference 'Arthist.count', -1 do
         post arthists_path, params: {arthist: {name: "arthist_name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: "sing_link"}}
         }}
       end
@@ -107,6 +110,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
       assert_difference 'Arthist.count', -1 do
         patch arthist_path, params: {arthist: {name: "arthist_name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: "sing_link"}}
         }}
       end

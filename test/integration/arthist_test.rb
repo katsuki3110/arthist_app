@@ -15,6 +15,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       assert_difference 'Sing.count', 1 do
         post arthists_path, params: {arthist: {name: "arthist　name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: "https://www.youtube.."}}
         }}
       end
@@ -28,6 +29,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       assert_difference 'Sing.count', 1 do
         post arthists_path, params: {arthist: {name: "arthist　name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: "https://www.youtube.."}}
         }}
       end
@@ -41,6 +43,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       assert_difference 'Sing.count', 1 do
         post arthists_path, params: {arthist: {name: "arthist2_name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: "https://www.instagram.com/p/sample_test/?igshid=.."}}
         }}
       end
@@ -53,6 +56,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       assert_difference 'Sing.count', 1 do
         post arthists_path, params: {arthist: {name: "arthist2_name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: "https://www.instagram.com/p/sample_test/?igshid=.."}}
         }}
       end
@@ -65,6 +69,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       assert_no_difference 'Sing.count' do
         post arthists_path, params: {arthist: {name: "arthist_name",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: ""}}
         }}
       end
@@ -80,6 +85,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       assert_no_difference 'Sing.count' do
         post arthists_path, params: {arthist: {name: "",
                                                sings_attributes: {"0": {user_id: @user.id,
+                                                                        name: "sing_name",
                                                                         link: "https://www.youtube.."}}
         }}
       end

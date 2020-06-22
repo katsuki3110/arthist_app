@@ -6,6 +6,7 @@ class LikeIntegrationTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @arthist = arthists(:one)
     @sing = @arthist.sings.create!(user_id: @user.id,
+                                   name: "sing_name",
                                    link: "https://www.youtube..")
   end
 
