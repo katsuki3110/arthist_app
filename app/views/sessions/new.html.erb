@@ -5,7 +5,7 @@
 
       <div class="login_modal">
         <%= form.label       :メール, {class: "form_label login_label"} %>
-        <%= form.email_field :email, {class: "form_field login_field"} %>
+        <%= form.email_field :email, {class: "form_field login_field", autocomplete: "off"} %>
 
         <%= form.label          :パスワード, {class: "form_label login_label"} %>
         <%= form.password_field :password, {class: "form_field login_field"} %>
