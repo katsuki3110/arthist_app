@@ -1,21 +1,25 @@
+<div class="signup_container">
+  <div class="signup_inner">
+    <h1>SignUp</h1>
+    <%= form_with(model: @user, local: true) do |form| %>
+      <%= render 'layouts/error_message', object: form.object %>
 
+      <div class="signup_modal">
+        <%= form.label      :ユーザー名, {class: "form_label signup_label"} %>
+        <%= form.text_field :name, {class: "form_field signup_field"} %>
 
+        <%= form.label       :メール, {class: "form_label signup_label"} %>
+        <%= form.email_field :email, {class: "form_field signup_field"} %>
 
-<%= form_with(model: @user, local: true) do |form| %>
-  <%= render 'layouts/error_message', object: form.object %>
+        <%= form.label          :パスワード, {class: "form_label signup_label"} %>
+        <%= form.password_field :password, {class: "form_field signup_field"} %>
+        <p>※パスワードの長さは最低6文字です。</p>
 
-  <%= form.label      :name %>
-  <%= form.text_field :name %>
+        <%= form.label          :もう一度パスワードを入力してください, {class: "form_label signup_label"} %>
+        <%= form.password_field :password_confirmation, {class: "form_field signup_field"} %>
 
-  <%= form.label       :email %>
-  <%= form.email_field :email %>
-
-  <%= form.label          :password %>
-  <%= form.password_field :password %>
-
-  <%= form.label          :password_confirmation %>
-  <%= form.password_field :password_confirmation %>
-
-  <%= form.submit "新規登録" %>
-
-<% end %>
+        <%= form.submit "新規登録", {class: "btn signup_btn"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
