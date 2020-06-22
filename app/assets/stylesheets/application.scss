@@ -154,32 +154,70 @@ li{
 
 //**arthist**
 
-.arthist_container{
+.arthistPost_container{
   height: 100%;
 }
 
-.arthist_inner h1{
+.arthistPost_inner h1{
   text-align: center;
-  margin-top: 120px;
+  margin-top: 150px;
 }
 
-.arthist_modal{
-  width: 500px;
-  margin: 0 auto;
+.arthistPost_modal{
+  margin-top: 80px;
+}
+
+.arthistPost_arthist{
+  position: relative;
 }
 
 .arthist_label{
   font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-165px, -35px);
 }
 
-.arthist_link{
-  margin-top: 20px;
+.arthistPost_field{
+  border-top: none;
+  border-bottom: 1px solid #BBBBBB;
+  border-left: none;
+  border-right: none;
+  margin: 0 auto 60px;
+  width: 350px;
+  height: 30px;
+  font-size: 20px;
 }
 
-.arthist_link p{
-  display: inline;
+.arthistPost_field:focus{
+  transition: 0.2s;
+  border: 1.3px solid black;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.arthistPost_singName{
+  position: relative;
+}
+
+.arthistPost_singLink{
+  position: relative;
+}
+
+.sing_label{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-165px, -27px);
 }
 
 .arthist_btn{
-  margin-top: 20px;
+  display: block;
+  width: 350px;
+  margin: 20px auto 0;
+  font-size: 15px;
+  padding: 5px 0;
 }

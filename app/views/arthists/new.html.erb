@@ -1,30 +1,28 @@
-<div class="arthist_container">
-  <div class="arthist_inner">
+<div class="arthistPost_container">
+  <div class="arthistPost_inner">
     <h1>おすすめ曲は？</h1>
     <%= form_with(model: @arthist, local: true) do |form| %>
       <%= render 'layouts/error_message', object: form.object %>
 
-      <div class="arthist_modal">
-        <div class="arthist_name">
+      <div class="arthistPost_modal">
+        <div class="arthistPost_arthist">
           <%= form.label      :アーティスト名, {class: "form_label arthist_label"} %>
-          <%= form.text_field :name, {class: "form_field", autocomplete: "off"} %>
+          <%= form.text_field :name, {class: "form_field arthistPost_field", autocomplete: "off"} %>
         </div>
 
         <%= form.fields_for :sings do |sing| %>
 
-          <div class="">
+          <div class="arthistPost_singName">
             <%= sing.label      :曲名, {class: "form_label sing_label"} %>
-            <%= sing.text_field :name, {class: "form_field", autocomplete: "off"} %>
+            <%= sing.text_field :name, {class: "form_field arthistPost_field", autocomplete: "off"} %>
           </div>
 
-          <div class="">
-            <%= sing.label      :曲のurl, {class: "form_label sing_label"} %>
-            <%= sing.text_field :link, {class: "form_field", autocomplete: "off"} %>
-            <p>※youtubeまたはinstagramのurlを入力してください</p>
+          <div class="arthistPost_singLink">
+            <%= sing.label      :曲url（youtubeまたはinstagram）, {class: "form_label sing_label"} %>
+            <%= sing.text_field :link, {class: "form_field arthistPost_field", autocomplete: "off"} %>
           </div>
 
         <% end %>
-
 
         <%= form.submit "おすすめ曲をシェア", {class: "btn arthist_btn"} %>
       </div>
