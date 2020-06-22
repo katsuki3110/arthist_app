@@ -1,16 +1,21 @@
+<div class="login_container">
+  <div class="login_inner">
+    <h1>Login</h1>
+    <%= form_with(url: sessions_path, scope: :session , local: true) do |form| %>
 
+      <div class="login_modal">
+        <%= form.label       :メール, {class: "form_label login_label"} %>
+        <%= form.email_field :email, {class: "form_field login_field"} %>
 
-<%= form_with(url: sessions_path, scope: :session , local: true) do |form| %>
+        <%= form.label          :パスワード, {class: "form_label login_label"} %>
+        <%= form.password_field :password, {class: "form_field login_field"} %>
 
-  <%= form.label       :email %>
-  <%= form.email_field :email %>
+        <%= form.check_box :remember_me %>
+        <%= form.label     :次回から自動でログイン %>
 
-  <%= form.label          :password %>
-  <%= form.password_field :password %>
+        <%= form.submit "ログイン", {class: "btn login_btn"} %>
+      </div>
 
-  <%= form.check_box :remember_me %>
-  <%= form.label     :次回から自動でログイン %>
-
-  <%= form.submit "ログイン" %>
-
-<% end %>
+    <% end %>
+  </div>
+</div>

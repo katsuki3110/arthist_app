@@ -90,18 +90,18 @@ li{
 }
 
 
-//**user**
+//**user session**
 
-.signup_container{
+.signup_container, .login_container{
   height: 100%;
 }
 
-.signup_inner h1{
+.signup_inner h1, .login_inner h1{
   text-align: center;
   margin-top: 120px;
 }
 
-.signup_modal{
+.signup_modal, .login_modal{
   width: 380px;
   margin: 0 auto;
 }
@@ -112,18 +112,21 @@ li{
   font-size: 13px;
 }
 
-.signup_label{
+.signup_label, .login_label{
   margin-top: 18px;
 }
 
-.signup_field{
+.signup_field, .login_field{
   font-size: 15px;
 }
 
-.signup_btn{
+.signup_btn, .login_btn{
   display: block;
-  margin: 40px auto 0;
+  margin: 30px auto 0;
   width: 100%;
   padding: 5px 0;
   font-size: 15px;
 }
+
+
+//**session**
