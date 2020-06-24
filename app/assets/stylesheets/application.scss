@@ -172,9 +172,9 @@ li{
 
 .arthists_item{
   display: inline-block;
+  vertical-align: top;
   margin: 0 auto 80px 45px;
   text-align: center;
-  border: 1px solid red;
 }
 
 .arthists_image ,.arthist_image{
@@ -190,7 +190,8 @@ li{
 
 .arthists_arthistName_wrapper{
   width: 330px;
-  border: 1px solid green;
+  height: 50px;
+  margin: 0 auto;
 }
 
 //*show*
@@ -300,26 +301,25 @@ li{
 
 .sings_item{
   display: inline-block;
+  vertical-align: top;
   margin: 0 auto 80px 100px;
   position: relative;
-  border: 1px solid red;
 }
 
 .sings_details{
   width: 500px;
-  height: 65px;
+  height: 80px;
   display: flex;
   align-items: center;
-  padding: 0 auto 0 20px;
+  margin-bottom: 10px;
 }
 
 .sings_singName_wrapper{
-  width: auto;
+  font-size: 20px;
   margin: 0 0 0 auto;
 }
 
 .sings_arthistName_wrapper{
-  width: auto;
   margin: 0 auto 0 0;
 }
 
@@ -330,6 +330,6 @@ li{
 
 .sings_delete{
   position: absolute;
-  top: 380px;
+  top: 395px;
   left: 0;
 }

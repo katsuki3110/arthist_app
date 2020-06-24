@@ -11,8 +11,8 @@ class SingTest < ActiveSupport::TestCase
     assert_not @sing.valid?
   end
 
-  test "nameは最大50文字" do
-    @sing.name = "a"*51
+  test "nameは最大45文字" do
+    @sing.name = "a"*46
     assert_not @sing.valid?
   end
 
