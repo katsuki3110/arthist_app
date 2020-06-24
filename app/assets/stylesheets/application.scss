@@ -285,6 +285,59 @@ li{
   padding: 5px 0;
 }
 
+//*edit*
+
+.arthistEdit_inner{
+  position: relative;
+}
+
+.arthistEdit_modal{
+  display: flex;
+  width: 900px;
+  position: absolute;
+  top: 160px;
+  left: 48%;
+  transform: translate(-50%, 0);
+}
+
+.arthistEdit_image{
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+
+.arthistEdit_image:hover{
+  transition: 0.3s;
+  opacity: 0.5;
+}
+
+.arthistEdit_image_wrapper{
+  position: relative;
+}
+
+.arthistEdit_fontImage{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #e0e0ec;
+}
+
+.arthistEdit_contents{
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.arthistEdit_field{
+  width: 350px;
+  margin-bottom: 40px;
+}
+
+.arthist_edit_btn{
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+}
+
 
 //**sings**
 

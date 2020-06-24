@@ -15,7 +15,7 @@
         <%= form.fields_for :sings do |sing| %>
 
           <div class="arthistPost_singName">
-            <%= sing.label      :曲名, {class: "form_label arthistPost_label"} %>
+            <%= sing.label      :曲名（オリジナルまたはカバー）, {class: "form_label arthistPost_label"} %>
             <%= sing.text_field :name, {class: "form_field arthistPost_field",
                                         autocomplete: "off",
                                         maxlength: 45} %>

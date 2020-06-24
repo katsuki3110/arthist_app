@@ -1,17 +1,30 @@
-<h1>アーティスト情報編集</h1>
+<div class="arthistEdit_container">
+  <div class="arthistEdit_inner">
+    <%= form_with(model: @arthist, local: true) do |form| %>
+      <%= render 'layouts/error_message', object: form.object %>
 
-<%= form_with(model: @arthist, local: true) do |form| %>
-  <%= render 'layouts/error_message', object: form.object %>
+      <div class="arthistEdit_modal">
+        <div class="arthistEdit_image_wrapper">
+          <%= link_to image_tag(@arthist.image_url, class: "arthistEdit_image"),
+                      edit_image_arthist_path(@arthist) %>
+          <i class="fas fa-2x fa-camera arthistEdit_fontImage"></i>
+        </div>
+        <div class="arthistEdit_contents">
+          <div class="arthistEdit_name_wrapper">
+            <%= form.label :アーティスト名, {class: "form_label"} %>
+            <%= form.text_field :name, {class: "form_field arthistEdit_field",
+                                        autocomplete: "off",
+                                        maxlength: 30} %>
+          </div>
+          <div class="arthistEdit_link_wrapper">
+            <%= form.label :関連リンク, {class: "form_label"} %>
+            <%= form.text_field :link, {class: "form_field arthistEdit_field",
+                                        autocomplete: "off"} %>
+          </div>
 
-  <%= link_to image_tag(@arthist.image_url), edit_image_arthist_path(@arthist) %>
-
-  <%= form.label :アーティスト名 %>
-  <%= form.text_field :name, {maxlength: 30} %>
-
-  <%= form.label :関連リンク %>
-  <%= form.text_field :link %>
-
-
-  <%= form.submit '更新する' %>
-
-<% end %>
+          <%= form.submit '更新する', {class: "btn arthist_edit_btn"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
