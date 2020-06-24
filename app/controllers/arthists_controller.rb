@@ -1,5 +1,6 @@
 class ArthistsController < ApplicationController
-  before_action :logged_in_user,      only: [:new, :create]
+  before_action :logged_in_user,      only: [:new, :create, :edit, :update,
+                                             :edit_image, :update_image]
   before_action :arthist_dup,         only: :create
   before_action :current_user_admin?, only: :destroy
   before_action :debut
@@ -12,6 +13,7 @@ class ArthistsController < ApplicationController
     @arthist = Arthist.find_by(id: params[:id])
     if @arthist.present?
       @sings = @arthist.sings
+      @arthist_flg = "1"
     else
       redirect_to arthists_path
     end
@@ -46,11 +48,15 @@ class ArthistsController < ApplicationController
 
   def update
     @arthist = Arthist.find_by(id: params[:id])
-    if @arthist.update(arthist_edit_params)
-      flash[:success] = "更新しました"
-      redirect_to arthist_path(@arthist)
+    if @arthist.present?
+      if @arthist.update(arthist_edit_params)
+        flash[:success] = "更新しました"
+        redirect_to arthist_path(@arthist)
+      else
+        render 'arthists/edit'
+      end
     else
-      render 'arthists/edit'
+      redirect_to root_path
     end
   end
 
@@ -86,6 +92,27 @@ class ArthistsController < ApplicationController
     end
   end
 
+  def edit_image
+    @arthist = Arthist.find_by(id: params[:id])
+    unless @arthist.present?
+      redirect_to arthists_path
+    end
+  end
+
+  def update_image
+    @arthist = Arthist.find_by(id: params[:id])
+    if @arthist.present?
+      if @arthist.update(arthist_image_params)
+        flash[:success] = "画像を更新しました！"
+        redirect_to arthist_path(@arthist)
+      else
+        render 'edit_image'
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
 
   private
 
@@ -98,7 +125,12 @@ class ArthistsController < ApplicationController
     end
 
     def arthist_edit_params
-      params.require(:arthist).permit(:name, :link)
+      params.require(:arthist).permit(:name,
+                                      :link)
+    end
+
+    def arthist_image_params
+      params.require(:image).permit(:image)
     end
 
     def changed_space(arthist_params)

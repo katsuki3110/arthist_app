@@ -3,6 +3,8 @@
 <%= form_with(model: @arthist, local: true) do |form| %>
   <%= render 'layouts/error_message', object: form.object %>
 
+  <%= link_to image_tag(@arthist.image_url), edit_image_arthist_path(@arthist)  %>
+
   <%= form.label :アーティスト名 %>
   <%= form.text_field :name %>
 

@@ -41,6 +41,21 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     assert_template 'arthists/new'
   end
 
+  test "editに失敗する（ログインしていない）" do
+    get edit_arthist_path
+    assert_redirected_to new_session_path
+  end
+
+  test "updateに失敗する（ログインしていない）" do
+    assert_no_difference 'Arthist.count' do
+      assert_no_difference 'Sing.count' do
+        patch arthist_path, params: {arthist: {name: "arthist_name"}
+        }}
+      end
+    end
+    assert_redirected_to new_session_path
+  end
+
   test "destroyに失敗する（admin権限がない）" do
     log_in_as @other_user
     assert_no_difference 'Arthist.count' do
@@ -145,6 +160,28 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
         delete debut_destroy_arthist_path(id: 1)
       end
     end
+  end
+
+  test "画像を編集する（ログインしていない）" do
+    @arthist.save
+    get edit_image_path(@arthist)
+    assert_redirected_to new_session_path
+  end
+
+  test "画像を更新する（ログインしていない）" do
+    @arthist.save
+    patch update_image_path(@arthist),params:{image:{image: "defalt.png"}}
+    assert_redirected_to new_session_path
+  end
+
+  test "画像を更新する（存在しないarthist）" do
+    log_in_as @user
+    @arthist.save
+    get edit_arthist_path(@arthist)
+    get edit_image_arthist_path(@arthist)
+    assert_template 'arthists/edit_image'
+    patch update_image_arthist_path(Arthist.last.id + 1), params: {image: {image: "default.png"}}
+    assert_redirected_to root_path
   end
 
 end

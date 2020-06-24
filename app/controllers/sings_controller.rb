@@ -12,7 +12,7 @@ class SingsController < ApplicationController
       @sings = Sing.order(created_at: "DESC").all
       @title = "全曲一覧"
     end
-    @arthist_flg = "1"
+    @sings_flg = "1"
   end
 
   def destroy

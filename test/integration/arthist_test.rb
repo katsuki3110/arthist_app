@@ -4,6 +4,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:one)
+    @arthist = arthists(:one)
   end
 
   test "arthistとsingを同時に登録する" do
@@ -91,6 +92,26 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       end
     end
     assert_template 'arthists/new'
+  end
+
+  test "arthistの編集を行う" do
+    log_in_as @user
+    @arthist.save
+    get edit_arthist_path(@arthist)
+    assert_template 'arthists/edit'
+    #名前とリンクの編集（失敗）
+    patch arthist_path(@arthist), params: {arthist: {name: "",
+                                                     link: "arthist_link"}}
+    assert_template 'arthists/edit'
+    #名前とリンクの編集（成功）
+    patch arthist_path(@arthist), params: {arthist: {name: "arthist_name",
+                                                     link: "arthist_link"}}
+    assert_redirected_to arthist_path(@arthist)
+    #画像の編集（成功）
+    get edit_arthist_path(@arthist)
+    get edit_image_arthist_path(@arthist)
+    patch update_image_arthist_path(@arthist), params: {image: {image: "default.png"}}
+    assert_redirected_to arthist_path(@arthist)
   end
 
 

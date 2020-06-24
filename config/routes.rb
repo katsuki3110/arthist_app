@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :likes,    only:[:create, :destroy]
   resources :arthists do
     member do
+      get    :edit_image
       post   :debut_create
+      patch  :update_image
       delete :debut_destroy
     end
   end

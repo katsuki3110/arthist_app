@@ -1,27 +1,41 @@
-<h1>アーティスト詳細</h1>
+<div class="arthistShow_container">
+  <div class="arthistShow_inner">
 
-<div id="debut">
-  <%= render 'arthists/debut_form', arthist: @arthist %>
-</div>
+    <div class="arthist_show_wrapper">
+      <div class="arthist_image_wrapper">
+        <% if @arthist.image.present? %>
+          <%= image_tag(@arthist.image_url, class: "arthist_image") %>
+        <% else %>
+          <%= image_tag("/assets/default_arthist.png", class: "arthist_image") %>
+        <% end %>
+      </div>
 
-<div class="">
-  アーティスト名：<%= @arthist.name %>
-</div>
+      <div class="arthist_name_wrapper">
+        <%= @arthist.name %>
+      </div>
 
-<div class="">
-  関連リンク：
-  <% if @arthist.link.present? %>
-    <%= link_to @arthist.link, @arthist.link, {target: "_blank"} %>
-  <% end %>
-</div>
+      <div class="arthist_link_wrapper">
+        <% if @arthist.link.present? %>
+          <%= link_to '関連リンクを見る', @arthist.link, {class: "link arthist_link", target: "_blank"} %>
+        <% else %>
+          <%= link_to 'リンクを追加する', edit_arthist_path(@arthist), {class: "link arthist_link"}  %>
+        <% end %>
+      </div>
+    </div>
 
-<ul>
-  <li><%= link_to '編集', edit_arthist_path(@arthist) %></li>
-  <% if current_user.present? && current_user.admin? %>
-    <li><%= link_to '削除', arthist_path(@arthist), data: {confirm: "削除しますか？"} %></li>
-  <% end %>
-</ul>
+    <ul>
+      <li><%= link_to '編集', edit_arthist_path(@arthist) %></li>
+      <% if current_user.present? && current_user.admin? %>
+        <li><%= link_to '削除', arthist_path(@arthist), data: {confirm: "削除しますか？"} %></li>
+      <% end %>
+    </ul>
 
-<div class="">
-  <%= render @sings %>
+    <div id="debut">
+      <%= render 'arthists/debut_form', arthist: @arthist %>
+    </div>
+
+    <div class="sings_items arthist_sings">
+      <%= render @sings %>
+    </div>
+  </div>
 </div>

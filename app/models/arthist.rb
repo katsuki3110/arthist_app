@@ -6,4 +6,6 @@ class Arthist < ApplicationRecord
 
   accepts_nested_attributes_for :sings
 
+  mount_uploader :image, ArthistImageUploader
+
 end

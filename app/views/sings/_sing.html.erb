@@ -1,14 +1,21 @@
 <div class="sings_item">
-  <% if @arthist_flg.present? %>
-    <div class="sings_arthistName">
-      アーティスト名：<%= link_to sing.arthist.name, arthist_path(sing.arthist) %>
+  <div class="sings_details">
+    <% if @arthist_flg.present? %>
+    <div class="arthist_singName_wrapper">
+      <%= sing.name %>
     </div>
-    <div class="sings_singName">
-      曲名：<%= sing.name %>
-    </div>
-  <% end %>
+    <% elsif @sings_flg.present? %>
+      <div class="sings_singName_wrapper">
+        <%= sing.name %>
+      </div>
+      <span>／</span>
+      <div class="sings_arthistName_wrapper">
+        <%= link_to sing.arthist.name, arthist_path(sing.arthist), {class: "sings_arthistName"} %>
+      </div>
+    <% end %>
+  </div>
 
-  <div class="">
+  <div>
     <% if sing.video_flg == 1 %>
       <iframe width="500" height="300" src="https://www.youtube.com/embed/<%= sing.link %>" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% elsif sing.video_flg == 2 %>
@@ -16,13 +23,14 @@
     <% end %>
   </div>
 
-  <% if current_user.present? && current_user.id == sing.user_id %>
-    <%= link_to "削除", sing_path(sing), {method: :delete, data:{confirm: "削除しますか？"}} %>
-  <% end %>
-
   <% if @like_flg != "1" %>
-    <div id="like-<%= sing.id %>">
+    <div class="like" id="like-<%= sing.id %>">
       <%= render 'likes/like_form', sing: sing %>
     </div>
   <% end %>
+
+  <% if current_user.present? && current_user.id == sing.user_id %>
+    <%= link_to "削除", sing_path(sing), {class: "sings_delete", method: :delete, data:{confirm: "削除しますか？"}} %>
+  <% end %>
+
 </div>

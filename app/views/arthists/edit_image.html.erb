@@ -1,0 +1,13 @@
+<h1>画像のアップロード</h1>
+
+<%= form_with(model: @arthist, url: update_image_arthist_path(@arthist), scope: :image,
+                                                                         local: true,
+                                                                         method: :patch) do |form| %>
+  <%= render 'layouts/error_message', object: form.object %>
+
+  <%= form.file_field :image, {class: ""} %>
+  <%= form.hidden_field :image_cashe %>
+
+  <%= form.submit "アップロード", {class: ""} %>
+
+<% end %>

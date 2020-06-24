@@ -1,7 +1,13 @@
 <% if current_user.present? && sing.likes.find_by(user_id: current_user.id) %>
-  <%= link_to 'お気に入り解除', like_path(sing), {method: :delete,
-                                                remote: true} %>
+  <!-- お気に入り解除 -->
+  <%= link_to like_path(sing), {method: :delete, remote: true} do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
 <% else %>
-  <%= link_to 'お気に入りする', likes_path(sing_id: sing.id), {method: :post,
-                                                             remote: true} %>
+  <!-- お気に入りする -->
+  <%= link_to likes_path(sing_id: sing.id), {method: :post, remote: true} do %>
+    <i class="far fa-heart"></i>
+  <% end %>
 <% end %>
+
+<%= sing.likes.count %>
