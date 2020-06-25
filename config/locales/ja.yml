@@ -1,0 +1,27 @@
+ja:
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      confirmation: が一致しません
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メール
+        password_confirmation: パスワード
+        remember_digest:
+        admin:
+      arthist:
+        user_id:
+        name: アーティスト名
+        link: 関連リンク
+        debut:
+        debut_date:
+      sings:
+        arthist_id:
+        name: 曲名
+        link: youtubeまたはinstagram
+        video_flg:
+      like:
+        user_id:
+        posts_id:
