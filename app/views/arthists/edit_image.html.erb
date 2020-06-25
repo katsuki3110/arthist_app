@@ -1,13 +1,18 @@
-<h1>画像のアップロード</h1>
+<div class="arthistUpload_container">
+  <div class="arthistUpload_inner">
+    <h1>画像のアップロード</h1>
 
-<%= form_with(model: @arthist, url: update_image_arthist_path(@arthist), scope: :image,
-                                                                         local: true,
-                                                                         method: :patch) do |form| %>
-  <%= render 'layouts/error_message', object: form.object %>
+    <%= form_with(model: @arthist, url: update_image_arthist_path(@arthist), scope: :image,
+                                                                             local: true,
+                                                                             method: :patch) do |form| %>
+    <%= render 'layouts/error_message', object: form.object %>
 
-  <%= form.file_field :image, {class: ""} %>
-  <%= form.hidden_field :image_cashe %>
+    <div class="arthistUpload_modal">
+      <%= form.file_field :image, {class: "btn upload_field"} %>
+      <%= form.hidden_field :image_cashe %>
 
-  <%= form.submit "アップロード", {class: ""} %>
-
-<% end %>
+      <%= form.submit "アップロード", {class: "btn upload_btn"} %>
+    </div>
+    <% end %>
+  </div>
+</div>
