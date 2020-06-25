@@ -129,21 +129,39 @@ li{
 
 .signup_modal, .login_modal{
   width: 380px;
-  margin: 0 auto;
+  margin: 60px auto 0;
 }
 
 .signup_modal p{
   display: inline;
   opacity: 0.7;
   font-size: 13px;
+  margin-left: 20px;
 }
 
 .signup_label, .login_label{
-  margin-top: 27px;
+  margin-left: 20px;
+  margin-top: 25px;
 }
 
 .signup_field, .login_field{
-  font-size: 15px;
+  border-top: none;
+  border-bottom: 1px solid #BBBBBB;
+  border-left: none;
+  border-right: none;
+  margin: 0 auto;
+  width: 350px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.signup_field:focus, .login_field:focus{
+  transition: 0.2s;
+  border: 1.3px solid black;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .signup_btn, .login_btn{
