@@ -1,5 +1,6 @@
 class ArthistsController < ApplicationController
   before_action :logged_in_user,      only: [:new, :create, :edit, :update,
+                                             :debut_create, :debut_destroy,
                                              :edit_image, :update_image]
   before_action :arthist_dup,         only: :create
   before_action :current_user_admin?, only: :destroy

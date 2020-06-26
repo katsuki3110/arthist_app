@@ -123,6 +123,72 @@ li{
 }
 
 
+
+//**home**
+
+.top_title_wrapper{
+  text-align: center;
+  height: 300px;
+  padding-top: 260px;
+}
+
+.top_title{
+  font-size: 50px;
+}
+
+.top_headline{
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+.scroll_wrapper{
+  height: 300px;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.top_explaine_wrapper{
+  height: 1900px;
+}
+
+.top_explaine_inner{
+  text-align: center;
+}
+
+.top_explaine_paragragh{
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.step_wrapper{
+  margin-bottom: 50px;
+}
+
+.step{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.explaine_warning{
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.top_btn{
+  display: inline-block;
+  width: 180px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  color: white;
+  background-color: #444444;
+  text-decoration: none;
+}
+
+.debut_wrappper{
+  margin: 120px 0;
+}
+
 //**user session**
 
 .signup_inner h1, .login_inner h1{
@@ -132,7 +198,7 @@ li{
 
 .signup_modal, .login_modal{
   width: 380px;
-  margin: 60px auto 0;
+  margin: 40px auto 0;
 }
 
 .signup_modal p{
@@ -144,7 +210,11 @@ li{
 
 .signup_label, .login_label{
   margin-left: 20px;
-  margin-top: 25px;
+  margin-top: 15px;
+}
+
+.login_checkbox{
+  margin-left: 20px;
 }
 
 .signup_field, .login_field{

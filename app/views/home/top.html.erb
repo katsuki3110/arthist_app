@@ -1,2 +1,77 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="top_container">
+  <div class="top_inner">
+    <div class="top_title_wrapper">
+      <h1 class="top_title">Debut!</h1>
+
+      <p class="top_headline">
+        すきなアーティストをシェアして、デビューまで応援しよう！
+      </p>
+    </div>
+    <div class="scroll_wrapper">
+      <i class="fas fa-2x fa-arrow-down"></i>
+      <p>使い方はこちら</p>
+    </div>
+    <div class="top_explaine_wrapper">
+      <div class="top_explaine_inner">
+
+        <div class="cheering_wrpper">
+          <p class="top_explaine_paragragh">＼ すきなアーティスト（デビュー前）がいる！ ／</p>
+          <div class="step_wrapper">
+            <p class="step">Step1</p>
+            <p>新規登録にてユーザー登録</p>
+            <%= link_to 'SignUp', new_user_path, {class: "btn top_btn"} %>
+          </div>
+          <div class="step_wrapper">
+            <p class="step">Step2</p>
+            <p>すきなアーティストの曲（カバーまたはオリジナル）をシェア</p>
+            <%= link_to 'Post', arthists_path, {class: "btn top_btn", method: :post} %>
+          </div>
+          <div class="step_wrapper">
+            <p class="step">Step3</p>
+            <p>
+              登録されているアーティストの情報を編集<br>
+              <span class="explaine_warning">※arthistsより編集するアーティストを選択してください</span>
+            </p>
+            <p></p>
+            <%= link_to 'arthists', arthists_path, {class: "btn top_btn"} %>
+          </div>
+          <div class="step_wrapper">
+            <p class="step">Step4</p>
+            <p>他ユーザーがシェアした曲もチェック</p>
+            <%= link_to 'sings', sings_path, {class: "btn top_btn"} %>
+          </div>
+          <div>
+            <p class="step">Step5</p>
+            <p>
+              気に入った曲はlike<br>
+              <span class="explaine_warning">※likeした曲の一覧はこちら</span>
+            </p>
+            <%= link_to 'Likes', sings_path(like_flg: "1"), {class: "btn top_btn"} %>
+          </div>
+        </div>
+
+        <div class="debut_wrappper">
+          <p class="top_explaine_paragragh">＼ ついにデビュー！ ／</p>
+          <p>
+            デビューを報告しよう！アーティストの詳細ページにて報告！<br>
+            <span class="explaine_warning">※報告されたアーティストは翌月の1日に自動で削除されます。</span>
+          </p>
+
+          <p>今月デビューが報告されているアーティストをチェック</p>
+          <%= link_to 'debut arthist', arthists_path, {class: "btn top_btn"} %>
+        </div>
+
+        <div class="nonCheering_wrapper">
+          <p class="top_explaine_paragragh">特にすきなアーティストがいない...</p>
+          <p>既にシェアされている曲をチェックしてみよう</p>
+          <%= link_to 'sings', sings_path, {class: "btn top_btn"} %>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

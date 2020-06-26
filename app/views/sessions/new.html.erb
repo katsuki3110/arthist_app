@@ -10,7 +10,7 @@
         <%= form.label          :パスワード, {class: "form_label login_label"} %>
         <%= form.password_field :password, {class: "form_field login_field"} %>
 
-        <%= form.check_box :remember_me %>
+        <%= form.check_box :remember_me, {class: "login_checkbox"} %>
         <%= form.label     :次回から自動でログイン %>
 
         <%= form.submit "ログイン", {class: "btn login_btn"} %>
