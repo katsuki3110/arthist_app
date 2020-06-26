@@ -2,7 +2,7 @@
   <%= link_to 'デビュー報告を取り消す', debut_path(@arthist), {method: :delete,
                                                            remote: true} %>
 <% else %>
-  <%= link_to 'デビューを報告する', debut_index_path(id: @arthist.id), {method: :post,
-                                                              remote: true,
-                                                              data: { confirm: "デビューした場合は、来月の1日にアーティスト情報が全て削除されます。"}} %>
+  <%= link_to 'デビューを報告する', debut_path(id: @arthist.id, debut_flg: "1"), {method: :patch,
+                                                                               remote: true,
+                                                                               data: { confirm: "デビューした場合は、来月の1日にアーティスト情報が全て削除されます。"}} %>
 <% end %>

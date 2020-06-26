@@ -26,7 +26,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_session_path
   end
 
-  test "初投稿のアーティストの曲を登録する(失敗)" do
+  test "createに失敗する(初投稿のアーティストの曲を登録する)" do
     log_in_as @user
     get new_arthist_path
     assert_no_difference 'Arthist.count' do
@@ -64,7 +64,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to arthists_path
   end
 
-  test "index_月末処理(デビューしているアーティストを削除)" do
+  test "index_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
     @arthist.save
     if Date.today == Time.current.beginning_of_month
@@ -74,7 +74,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "show_月末処理(デビューしているアーティストを削除)" do
+  test "show_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
     @arthist.save
     if Date.today == Time.current.beginning_of_month
@@ -84,7 +84,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "new_月末処理(デビューしているアーティストを削除)" do
+  test "new_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
     @arthist.save
     if Date.today == Time.current.beginning_of_month
@@ -94,7 +94,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "create_月末処理(デビューしているアーティストを削除)" do
+  test "create_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
     @arthist.save
     if Date.today == Time.current.beginning_of_month
@@ -108,7 +108,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "edit_月末処理(デビューしているアーティストを削除)" do
+  test "edit_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
     @arthist.save
     if Date.today == Time.current.beginning_of_month
@@ -118,7 +118,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "update_月末処理(デビューしているアーティストを削除)" do
+  test "update_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
     @arthist.save
     if Date.today == Time.current.beginning_of_month
@@ -132,7 +132,7 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "destroy_月末処理(デビューしているアーティストを削除)" do
+  test "destroy_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
     @arthist.save
     if Date.today == Time.current.beginning_of_month
