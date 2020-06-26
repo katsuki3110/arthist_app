@@ -63,7 +63,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       end
     end
     assert_redirected_to sings_path
-    #同じアーティストの曲を投稿する(失敗)
+    #同じアーティストの曲を投稿(失敗)
     get new_arthist_path
     assert_template 'arthists/new'
     assert_no_difference 'Arthist.count' do
@@ -76,12 +76,7 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
       end
     end
     assert_template 'arthists/new'
-  end
-
-  test "arthistとsingを同時に登録に失敗する" do
-    log_in_as @user
-    get new_arthist_path
-    assert_template 'arthists/new'
+    #同じアーティストの曲を投稿する(失敗)
     assert_no_difference 'Arthist.count' do
       assert_no_difference 'Sing.count' do
         post arthists_path, params: {arthist: {name: "",
@@ -113,7 +108,5 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
     patch update_image_arthist_path(@arthist), params: {image: {image: "default.png"}}
     assert_redirected_to arthist_path(@arthist)
   end
-
-
 
 end
