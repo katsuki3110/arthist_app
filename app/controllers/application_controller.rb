@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def already_logged_in
+      if logged_in?
+        flash[:info] = "既にログインしています"
+        redirect_to root_path
+      end
+    end
+
     def debut
       #月初にデビューしているアーティストは削除
       if Date.today == Time.current.beginning_of_month
