@@ -1,6 +1,10 @@
 <div class="arthists_container">
   <div class="arthists_inner">
-    <h1>アーティスト一覧</h1>
+    <h1>Arthists</h1>
+
+    <div class="arthists_debutBtn_wrapper">
+      <%= link_to '今月のDebut！', debut_index_path, {class: "btn arthists_debutBtn"} %>
+    </div>
 
     <div class="arthists_items">
       <%= render @arthists %>

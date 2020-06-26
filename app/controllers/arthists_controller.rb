@@ -1,6 +1,5 @@
 class ArthistsController < ApplicationController
   before_action :logged_in_user,      only: [:new, :create, :edit, :update,
-                                             :debut_create, :debut_destroy,
                                              :edit_image, :update_image]
   before_action :arthist_dup,         only: :create
   before_action :current_user_admin?, only: :destroy
@@ -68,26 +67,6 @@ class ArthistsController < ApplicationController
       @arthist.destroy
       flash[:info] = "削除しました"
       redirect_to arthists_path
-    else
-      redirect_to root_path
-    end
-  end
-
-  def debut_create
-    @arthist = Arthist.find_by(id: params[:id])
-    if @arthist.present?
-      @arthist.update(debut: true, debut_date: Date.today)
-      render 'debut.js.erb'
-    else
-      redirect_to root_path
-    end
-  end
-
-  def debut_destroy
-    @arthist = Arthist.find_by(id: params[:id])
-    if @arthist.present?
-      @arthist.update(debut: false, debut_date: nil)
-      render 'debut.js.erb'
     else
       redirect_to root_path
     end

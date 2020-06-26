@@ -1,0 +1,11 @@
+<div class="debutArthists_container">
+  <div class="debutArthists_inner">
+    <h1>＼ 今月のDebut！ ／</h1>
+
+    <div class="debutArthists_items">
+      <% @arthists.each do |arthist| %>
+        <%= render 'debut/debut_arthist', arthist: arthist %>
+      <% end %>
+    </div>
+  </div>
+</div>

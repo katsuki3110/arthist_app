@@ -142,26 +142,6 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "debut_create_月末処理(デビューしているアーティストを削除)" do
-    @arthist.debut = true
-    @arthist.save
-    if Date.today == Time.current.beginning_of_month
-      assert_difference 'Arthist.count', -1 do
-        post debut_create_arthist_path(id: 1)
-      end
-    end
-  end
-
-  test "debut_destroy_月末処理(デビューしているアーティストを削除)" do
-    @arthist.debut = true
-    @arthist.save
-    if Date.today == Time.current.beginning_of_month
-      assert_difference 'Arthist.count', -1 do
-        delete debut_destroy_arthist_path(id: 1)
-      end
-    end
-  end
-
   test "画像を編集する（ログインしていない）" do
     @arthist.save
     get edit_image_path(@arthist)

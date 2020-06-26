@@ -1,0 +1,13 @@
+<div class="debutArthists_item">
+  <div class="debutArthists_image_wrapper">
+    <% if arthist.image.present? %>
+      <%= link_to image_tag(arthist.image_url, class: "debutArthists_image"), arthist_path(arthist) %>
+    <% else %>
+      <%= link_to image_tag("/assets/default_arthist.png", class: "debutArthists_image"), arthist_path(arthist) %>
+    <% end %>
+  </div>
+
+  <div class="debutArthists_arthistName_wrapper">
+    <%= arthist.name %>
+  </div>
+</div>

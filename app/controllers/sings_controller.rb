@@ -7,10 +7,10 @@ class SingsController < ApplicationController
     @like_flg = params[:like_flg]
     if @like_flg == "1"
       @sings = current_user.like_sings.order(created_at: "DESC")
-      @title = "お気に入り曲一覧"
+      @title = "Likes"
     else
       @sings = Sing.order(created_at: "DESC").all
-      @title = "全曲一覧"
+      @title = "Sings"
     end
     @sings_flg = "1"
   end
