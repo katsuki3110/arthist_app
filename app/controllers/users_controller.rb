@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :already_logged_in
 
   def new
     @user = User.new
@@ -22,6 +23,13 @@ class UsersController < ApplicationController
                                    :email,
                                    :password,
                                    :password_confirmation)
+    end
+
+    def already_logged_in
+      if logged_in?
+        flash[:info] = "既にログインしています"
+        redirect_to root_path
+      end
     end
 
 end
