@@ -4,7 +4,7 @@ class DebutController < ApplicationController
   before_action :debut
 
   def index
-    @arthists = Arthist.order(debut_date: "DESC").where(debut: true)
+    @arthists = Arthist.order(debut_date: "ASC", name: "DESC").where(debut: true)
   end
 
   def update
