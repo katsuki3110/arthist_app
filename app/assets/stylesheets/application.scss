@@ -254,7 +254,7 @@ li{
 .arthists_inner h1{
   text-align: center;
   margin-top: 100px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .arthists_debutBtn_wrapper{
@@ -272,13 +272,13 @@ li{
 
 .arthists_items{
   width: 1200px;
-  margin: 50px auto;
+  margin: 50px auto 100px;
 }
 
 .arthists_item{
   display: inline-block;
   vertical-align: top;
-  margin: 0 auto 80px 45px;
+  margin: 40px auto 40px 45px;
   text-align: center;
 }
 
@@ -347,6 +347,11 @@ li{
 
 .arthist_youtube_link{
   display: inline-block;
+}
+
+.arthist_sings{
+  width: 1300px;
+  margin: 50px auto 100px;
 }
 
 
@@ -517,7 +522,7 @@ li{
 
 .sings_items{
   width: 1300px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
 }
 
 .sings_item{

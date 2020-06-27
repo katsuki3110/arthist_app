@@ -7,7 +7,9 @@
     </div>
 
     <div class="arthists_items">
+      <%= paginate @arthists, class: "arthists_paginate" %>
       <%= render @arthists %>
+      <%= paginate @arthists %>
     </div>
   </div>
 </div>

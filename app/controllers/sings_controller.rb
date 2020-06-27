@@ -6,10 +6,10 @@ class SingsController < ApplicationController
   def index
     @like_flg = params[:like_flg]
     if @like_flg == "1"
-      @sings = current_user.like_sings.order(created_at: "DESC")
+      @sings = current_user.like_sings.order(created_at: "DESC").page(params[:page]).per(6)
       @title = "Likes"
     else
-      @sings = Sing.order(created_at: "DESC").all
+      @sings = Sing.all.order(created_at: "DESC").page(params[:page]).per(6)
       @title = "Sings"
     end
     @sings_flg = "1"

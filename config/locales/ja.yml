@@ -3,6 +3,13 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       confirmation: が一致しません
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&raquo;"
+      next: "次 &rsaquo;"
+      truncate: "..."
   activerecord:
     attributes:
       user:

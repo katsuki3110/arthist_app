@@ -6,7 +6,7 @@ class ArthistsController < ApplicationController
   before_action :debut
 
   def index
-    @arthists = Arthist.order(name: "ASC").all
+    @arthists = Arthist.all.order(name: "ASC").page(params[:page]).per(12)
   end
 
   def show
