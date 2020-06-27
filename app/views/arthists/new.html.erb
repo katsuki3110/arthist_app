@@ -14,16 +14,16 @@
 
         <%= form.fields_for :sings do |sing| %>
 
+          <div class="arthistPost_singLink">
+            <%= sing.label      :曲のＵＲＬ（youtubeまたはinstagram）, {class: "form_label arthistPost_label"} %>
+            <%= sing.text_field :link, {class: "form_field arthistPost_field", autocomplete: "off"} %>
+          </div>
+
           <div class="arthistPost_singName">
-            <%= sing.label      :曲名（オリジナルまたはカバー）, {class: "form_label arthistPost_label"} %>
+            <%= sing.label      :歌っている曲名（オリジナルまたはカバー）, {class: "form_label arthistPost_label"} %>
             <%= sing.text_field :name, {class: "form_field arthistPost_field",
                                         autocomplete: "off",
                                         maxlength: 45} %>
-          </div>
-
-          <div class="arthistPost_singLink">
-            <%= sing.label      :曲url（youtubeまたはinstagram）, {class: "form_label arthistPost_label"} %>
-            <%= sing.text_field :link, {class: "form_field arthistPost_field", autocomplete: "off"} %>
           </div>
 
         <% end %>
