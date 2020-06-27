@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_104456) do
+ActiveRecord::Schema.define(version: 2020_06_27_121616) do
 
   create_table "arthists", force: :cascade do |t|
     t.string "name"
-    t.string "link"
+    t.string "instagram_link"
     t.boolean "debut", default: false
     t.date "debut_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.string "youtube_link"
   end
 
   create_table "likes", force: :cascade do |t|

@@ -106,7 +106,8 @@ class ArthistsController < ApplicationController
 
     def arthist_edit_params
       params.require(:arthist).permit(:name,
-                                      :link)
+                                      :instagram_link,
+                                      :youtube_link)
     end
 
     def arthist_image_params

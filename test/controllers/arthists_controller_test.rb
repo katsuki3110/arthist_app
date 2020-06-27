@@ -106,21 +106,24 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
 
   test "updateに失敗する（ログインしていない）" do
     patch arthist_path(@arthist), params: {arthist: {name: "arthist_name",
-                                                     link: "arthist_link"}
+                                                     instagram_link: "instagram_link",
+                                                     youtube_link:   "youtube_link"}}
     assert_redirected_to new_session_path
   end
 
   test "updateに失敗する（存在しないarthist）" do
     log_in_as @user
     patch arthist_path(id: Arthist.last.id + 1), params: {arthist: {name: "arthist_name",
-                                                                    link: "arthist_link"}
+                                                                    instagram_link: "instagram_link",
+                                                                    youtube_link:   "youtube_link"}}
     assert_redirected_to root_path
   end
 
   test "updateに失敗する（validationエラー）" do
     log_in_as @user
-    patch arthist_path(id: Arthist.last.id + 1), params: {arthist: {name: "",
-                                                                    link: "arthist_link"}
+    patch arthist_path(@arthist), params: {arthist: {name: "",
+                                                     instagram_link: "instagram_link",
+                                                     youtube_link:   "youtube_link"}}
     assert_template 'arthists/edit'
   end
 
@@ -199,11 +202,9 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     @arthist.save
     if Date.today == Time.current.beginning_of_month
       assert_difference 'Arthist.count', -1 do
-        patch arthist_path, params: {arthist: {name: "arthist_name",
-                                               sings_attributes: {"0": {user_id: @user.id,
-                                                                        name: "sing_name",
-                                                                        link: "sing_link"}}
-        }}
+        patch arthist_path(@arthist), params: {arthist: {name: "arthist_name",
+                                                         instagram_link: "instagram_link",
+                                                         youtube_link:   "youtube_link"}}
       end
     end
   end
@@ -218,26 +219,26 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "editに失敗する（ログインしていない）" do
+  test "image_editに失敗する（ログインしていない）" do
     @arthist.save
-    get edit_image_path(@arthist)
+    get edit_image_arthist_path(@arthist)
     assert_redirected_to new_session_path
   end
 
-  test "editに失敗する（存在しないarthist）" do
+  test "image_editに失敗する（存在しないarthist）" do
     log_in_as @user
     @arthist.save
-    get edit_image_path(id: Arthist.last.id + 1)
+    get edit_image_arthist_path(id: Arthist.last.id + 1)
     assert_redirected_to arthists_path
   end
 
-  test "updateに失敗する（ログインしていない）" do
+  test "image_updateに失敗する（ログインしていない）" do
     @arthist.save
-    patch update_image_path(@arthist),params:{image:{image: "defalt.png"}}
+    patch update_image_arthist_path(@arthist),params:{image:{image: "defalt.png"}}
     assert_redirected_to new_session_path
   end
 
-  test "updateに失敗する（存在しないarthist）" do
+  test "image_updateに失敗する（存在しないarthist）" do
     log_in_as @user
     @arthist.save
     patch update_image_arthist_path(Arthist.last.id + 1), params: {image: {image: "default.png"}}

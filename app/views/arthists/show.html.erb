@@ -1,6 +1,14 @@
 <div class="arthistShow_container">
   <div class="arthistShow_inner">
 
+    <ul>
+      <li><%= link_to '編集', edit_arthist_path(@arthist), class: "link arthist_edit" %></li>
+      <% if current_user.present? && current_user.admin? %>
+        <li><%= link_to '削除', arthist_path(@arthist), {class: "link arthist_delete",
+                                                        data: {confirm: "削除しますか？"}} %></li>
+      <% end %>
+    </ul>
+
     <div class="arthist_show_wrapper">
       <div class="arthist_image_wrapper">
         <% if @arthist.image.present? %>
@@ -15,20 +23,26 @@
       </div>
 
       <div class="arthist_link_wrapper">
-        <% if @arthist.link.present? %>
-          <%= link_to '関連リンクを見る', @arthist.link, {class: "link arthist_link", target: "_blank"} %>
-        <% else %>
-          <%= link_to 'リンクを追加する', edit_arthist_path(@arthist), {class: "link arthist_link"}  %>
-        <% end %>
+        <div class="arthist_instagram_link">
+          <% if @arthist.instagram_link.present? %>
+            <%= link_to @arthist.instagram_link, {class: "link", target: "_blank"} do %>
+              <i class="fab fa-2x fa-instagram"></i>
+            <% end %>
+          <% else %>
+            <i class="fab fa-2x fa-instagram"></i>
+          <% end %>
+        </div>
+        <div class="arthist_youtube_link">
+          <% if @arthist.youtube_link.present? %>
+            <%= link_to @arthist.youtube_link, {class: "link", target: "_blank"} do %>
+              <i class="fab fa-2x fa-youtube"></i>
+            <% end %>
+          <% else %>
+            <i class="fab fa-2x fa-youtube"></i>
+          <% end %>
+        </div>
       </div>
     </div>
-
-    <ul>
-      <li><%= link_to '編集', edit_arthist_path(@arthist) %></li>
-      <% if current_user.present? && current_user.admin? %>
-        <li><%= link_to '削除', arthist_path(@arthist), data: {confirm: "削除しますか？"} %></li>
-      <% end %>
-    </ul>
 
     <div id="debut">
       <%= render 'debut/debut_form', arthist: @arthist %>

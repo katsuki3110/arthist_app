@@ -2,12 +2,14 @@
 
 one:
   name: one
-  link: MyString
+  instagram_link: MyString
+  youtube_link: MyString
   debut: false
   debut_date: 2020-06-13
 
 two:
   name: one
-  link: MyString
+  instagram_link: MyString
+  youtube_link: MyString
   debut: false
   debut_date: 2020-06-13

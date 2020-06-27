@@ -96,11 +96,13 @@ class ArthistIntegrationTest < ActionDispatch::IntegrationTest
     assert_template 'arthists/edit'
     #名前とリンクの編集（失敗）
     patch arthist_path(@arthist), params: {arthist: {name: "",
-                                                     link: "arthist_link"}}
+                                                     instagram_link: "instagram_link",
+                                                     youtube_link:   "youtube_link"}}
     assert_template 'arthists/edit'
     #名前とリンクの編集（成功）
     patch arthist_path(@arthist), params: {arthist: {name: "arthist_name",
-                                                     link: "arthist_link"}}
+                                                     instagram_link: "instagram_link",
+                                                     youtube_link:   "youtube_link"}}
     assert_redirected_to arthist_path(@arthist)
     #画像の編集（成功）
     get edit_arthist_path(@arthist)

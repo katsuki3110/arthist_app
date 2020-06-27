@@ -15,7 +15,7 @@ class DebutController < ApplicationController
       else
         @arthist.update(debut: false, debut_date: nil)
       end
-      render 'debut.js.erb'
+      render 'debut/debut.js.erb'
     else
       redirect_to root_path
     end
