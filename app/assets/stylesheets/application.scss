@@ -500,14 +500,29 @@ li{
   text-align: center;
 }
 
-.debut_link{
+.undebut_btn{
   display: inline-block;
   width: 210px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 15px;
   font-size: 23px;
-  border: 1px solid black;
+  color: white;
+  background-color: #444444;
+  text-decoration: none;
+}
+
+.debut_btn{
+  display: inline-block;
+  width: 210px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  font-size: 23px;
+  color: #444444;
+  background-color: white;
+  border: 1px solid #444444;
+  text-decoration: none;
 }
 
 
