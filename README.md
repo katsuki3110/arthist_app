@@ -1,24 +1,29 @@
-# README
+# おすすめ曲のシェアサービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・アプリケーションの概要
+  まだデビューしていないアーティストの歌（youtubeまたはinstagram）をシェアし、
+  アーティストのファンを増やすことで、デビューまで応援するアプリ。
 
-Things you may want to cover:
+・アプリケーションの機能一覧
+  認証機能
+  ログイン時の資格情報の保持
+  動画リンクのアップロード機能（youtubeまたはinstagram）
+  動画リンクと同時にアーティストも投稿できる機能
+  アーティストの名前を全角スペースと半角スペースを区別せずに登録する機能
+  動画リンクアップ時に既に存在するアーティストは登録しない機能
+  お気に入り曲のいいね機能（Ajax）
+  アーティスト情報の編集機能（名前、instagramリンク、youtubeリンク）
+  アーティストの画像アップロード機能
+  デビューアーティストを報告する機能（Ajax）
+  デビューしたアーティストを翌月1日に削除する機能
+  一覧ページのページネーション機能
 
-* Ruby version
+・言語
+  HTML
+  CSS
+  JavaScript
+  jquery
+  Ruby　⇒　version：2.3.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・フレームワーク
+  Ruby_on_Rails　⇒　version：5.2.4.3
