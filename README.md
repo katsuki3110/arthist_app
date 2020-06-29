@@ -23,7 +23,7 @@
   CSS  
   JavaScript  
   jquery  
-  Ruby　⇒　version：2.3.1  
+  Ruby　⇒　version：2.5.1  
 
 ・フレームワーク  
   Ruby_on_Rails　⇒　version：5.2.4.3  
