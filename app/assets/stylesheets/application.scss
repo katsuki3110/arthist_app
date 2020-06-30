@@ -6,6 +6,7 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+
  //**全体**
 
 body{
@@ -161,7 +162,7 @@ li{
 }
 
 .top_explaine_wrapper{
-  height: 1900px;
+  margin-bottom: 150px;
 }
 
 .top_explaine_inner{
@@ -175,7 +176,7 @@ li{
 }
 
 .step_wrapper{
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .step{
@@ -202,6 +203,60 @@ li{
 .debut_wrappper{
   margin: 120px 0;
 }
+
+
+//home_モバイル
+
+@media (max-width: 670px){
+  .top_title_wrapper{
+    height: 300px;
+    padding-top: 220px;
+  }
+
+  .top_headline{
+    font-size: 12px;
+  }
+
+  .top_title{
+    font-size: 50px;
+  }
+
+  .scroll_wrapper p{
+    font-size: 13px;
+  }
+
+  .top_explaine_paragragh{
+    font-size: 21px;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+
+  .step{
+    font-size: 20px;
+  }
+
+  .top_explaine_line{
+    font-size: 14px;
+  }
+
+  .explaine_warning{
+    font-size: 10px;
+  }
+
+  .top_btn{
+    width: 100px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 10px;
+  }
+
+  .debut_wrappper{
+    margin: 120px 0;
+  }
+}
+
+
+
 
 //**user session**
 

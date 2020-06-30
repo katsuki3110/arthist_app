@@ -17,17 +17,19 @@
         <div class="cheering_wrpper">
           <div class="step_wrapper">
             <p class="step">Step1</p>
-            <p>新規登録にてユーザー登録</p>
+            <p class="top_explaine_line">新規登録にてユーザー登録</p>
             <%= link_to 'SignUp', new_user_path, {class: "btn top_btn"} %>
           </div>
           <div class="step_wrapper">
             <p class="step">Step2</p>
-            <p>すきなアーティストの曲（カバーまたはオリジナル）をシェア</p>
+            <p class="top_explaine_line">
+              おすすめの曲をシェア（coverやoriginalなど）
+            </p>
             <%= link_to 'Post', new_arthist_path, {class: "btn top_btn"} %>
           </div>
           <div class="step_wrapper">
             <p class="step">Step3</p>
-            <p>
+            <p class="top_explaine_line">
               登録されているアーティストの情報を編集<br>
               <span class="explaine_warning">※arthistsより編集するアーティストを選択してください</span>
             </p>
@@ -36,12 +38,14 @@
           </div>
           <div class="step_wrapper">
             <p class="step">Step4</p>
-            <p>他ユーザーがシェアした曲もチェック</p>
+            <p class="top_explaine_line">
+              他ユーザーがシェアした曲もチェック
+            </p>
             <%= link_to 'sings', sings_path, {class: "btn top_btn"} %>
           </div>
           <div>
             <p class="step">Step5</p>
-            <p>
+            <p class="top_explaine_line">
               気に入った曲はlike<br>
               <span class="explaine_warning">※likeした曲の一覧はこちら</span>
             </p>
@@ -51,18 +55,24 @@
 
         <div class="debut_wrappper">
           <p class="top_explaine_paragragh">＼ ついにデビュー！ ／</p>
-          <p>
-            デビューを報告しよう！アーティストの詳細ページにて報告！<br>
-            <span class="explaine_warning">※報告されたアーティストは翌月の1日に自動で削除されます。</span>
+          <p class="top_explaine_line">
+            アーティスト詳細ページにてデビュー報告！<br>
+            <span class="explaine_warning">
+              ※報告されたアーティストは翌月の1日に自動で削除されます。
+            </span>
           </p>
 
-          <p>今月デビューが報告されているアーティストをチェック</p>
+          <p class="top_explaine_line">
+            今月のデビューアーティストをチェック！
+          </p>
           <%= link_to 'debut arthist', debut_index_path, {class: "btn top_btn"} %>
         </div>
 
         <div class="nonCheering_wrapper">
           <p class="top_explaine_paragragh">特にすきなアーティストがいない...</p>
-          <p>既にシェアされている曲をチェックしてみよう</p>
+          <p class="top_explaine_line">
+            既にシェアされている曲をチェックしてみよう
+          </p>
           <%= link_to 'sings', sings_path, {class: "btn top_btn"} %>
         </div>
 
