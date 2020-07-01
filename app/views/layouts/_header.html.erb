@@ -24,5 +24,37 @@
 
       <% end %>
     </ul>
+
+    <!--mobile-->
+    <ul class="menu_btn">
+      <li class="fas fa-2x fa-bars" id="menu_btn"></li>
+    </ul>
+
   </div>
+</div>
+
+<div id="mobile_container">
+
+  <div id="mobile_close">
+    <i class="fa fa-2x fa-times"></i>
+  </div>
+
+  <ul class="mobile_link_wrapper">
+    <% if current_user.present? %>
+      <li><%= link_to 'Logout', session_path(current_user), {class: "link header_link", id: "mobile_link", method: :delete}  %></li>
+
+    <% else %>
+      <li><%= link_to 'Login', new_session_path, {class: "link header_link", id: "mobile_link"} %></li>
+      <li><%= link_to 'SignUp', new_user_path, {class: "link header_link", id: "mobile_link"} %></li>
+
+    <% end %>
+
+    <li><%= link_to 'Post', new_arthist_path, {class: "link header_link", id: "mobile_link"} %></li>
+    <li><%= link_to 'Sings', sings_path, {class: "link header_link", id: "mobile_link"} %></li>
+    <li><%= link_to 'Arthists', arthists_path, {class: "link header_link", id: "mobile_link"} %></li>
+    <% if current_user.present? %>
+      <li><%= link_to 'Likes', sings_path(like_flg: "1"), {class: "link header_link", id: "mobile_link"} %></li>
+    <% end %>
+  </ul>
+
 </div>

@@ -14,3 +14,17 @@
 //= require turbolinks
 //= require jquery
 //= require_tree .
+
+
+$(function(){
+
+  $(document).on('click', '#menu_btn', function(){
+    $('#mobile_container').fadeIn();
+  });
+
+  $(document).on('click', '#mobile_close', function(){
+    $('#mobile_container').fadeOut();
+  });
+
+
+});
