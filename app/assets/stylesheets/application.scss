@@ -360,6 +360,59 @@ li{
 }
 
 
+//*user sessions_mobile*
+
+@media (max-width: 670px){
+  .signup_inner h1, .login_inner h1{
+    font-size: 30px;
+    margin-top: 150px;
+  }
+
+  .signup_modal, .login_modal{
+    width: 270px;
+    margin: 35px auto 0;
+  }
+
+  .signup_label, .login_label{
+    font-size: 13px;
+    margin-left: 8px;
+    margin-top: 10px;
+  }
+
+  .signup_field, .login_field{
+    width: 270px;
+    font-size: 15px;
+  }
+
+  .login_password{
+    margin-bottom: 10px;
+  }
+
+  .login_checkbox{
+    margin-left: 8px;
+  }
+
+  .login_checkbox_label{
+    font-size: 13px;
+  }
+
+  .signup_modal p{
+    font-size: 10px;
+    margin-left: 8px;
+  }
+
+  .signup_btn, .login_btn{
+    margin: 30px auto 0;
+    padding: 3px 0;
+    font-size: 13px;
+  }
+
+}
+
+
+
+
+
 //**arthist**
 
 //*index*

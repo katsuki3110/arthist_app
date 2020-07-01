@@ -8,10 +8,10 @@
         <%= form.email_field :email, {class: "form_field login_field", autocomplete: "off"} %>
 
         <%= form.label          :パスワード, {class: "form_label login_label"} %>
-        <%= form.password_field :password, {class: "form_field login_field"} %>
+        <%= form.password_field :password, {class: "form_field login_field login_password"} %>
 
         <%= form.check_box :remember_me, {class: "login_checkbox"} %>
-        <%= form.label     :次回から自動でログイン %>
+        <%= form.label     :次回から自動でログイン, {class: "login_checkbox_label"} %>
 
         <%= form.submit "ログイン", {class: "btn login_btn"} %>
       </div>
