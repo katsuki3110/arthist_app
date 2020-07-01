@@ -10,8 +10,9 @@ class DebutControllerTest < ActionDispatch::IntegrationTest
 
   test "index_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         get debut_index_path
       end
@@ -24,7 +25,9 @@ class DebutControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "update_月初処理(デビューしているアーティストを削除)" do
+    log_in_as @user
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
     if Date.today == Time.current.beginning_of_month
       assert_difference 'Arthist.count', -1 do

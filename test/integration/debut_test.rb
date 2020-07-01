@@ -10,7 +10,7 @@ class DebutTest < ActionDispatch::IntegrationTest
   test "デビューを報告し、取り消す" do
     log_in_as @user
     #デビューを報告する
-    patch debut_path(id: @arthist, debut_flg: "1")
+    patch debut_path(id: @arthist.id, debut_flg: "1")
     assert_equal @arthist.reload.debut, true
     assert_template 'debut/_debut_form'
     #デビューを取り消す

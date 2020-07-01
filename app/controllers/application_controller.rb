@@ -20,8 +20,9 @@ class ApplicationController < ActionController::Base
 
     def debut
       #月初にデビューしているアーティストは削除
-      if Date.today == Time.current.beginning_of_month
-        @arthists = Arthist.where(debut: true)
+      #月初 かつ 月初にデビューしたアーティスト以外
+      if Date.today == Date.today.beginning_of_month
+        @arthists = Arthist.where(debut: true).where.not(debut_date: Date.today)
         @arthists.destroy_all
       end
     end

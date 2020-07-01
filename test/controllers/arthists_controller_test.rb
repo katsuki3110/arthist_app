@@ -145,8 +145,9 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
 
   test "index_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         get arthists_path
       end
@@ -155,8 +156,9 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
 
   test "show_月初処理(デビューしているアーティストを削除)" do
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         get arthist_path(id: 1)
       end
@@ -164,9 +166,11 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "new_月初処理(デビューしているアーティストを削除)" do
+    log_in_as @user
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         get new_arthist_path
       end
@@ -174,9 +178,11 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "create_月初処理(デビューしているアーティストを削除)" do
+    log_in_as @user
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         post arthists_path, params: {arthist: {name: "arthist_name",
                                                sings_attributes: {"0": {user_id: @user.id,
@@ -188,9 +194,11 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "edit_月初処理(デビューしているアーティストを削除)" do
+    log_in_as @user
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         get edit_arthist_path(id: 1)
       end
@@ -198,9 +206,11 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "update_月初処理(デビューしているアーティストを削除)" do
+    log_in_as @user
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         patch arthist_path(@arthist), params: {arthist: {name: "arthist_name",
                                                          instagram_link: "instagram_link",
@@ -210,9 +220,11 @@ class ArthistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "destroy_月初処理(デビューしているアーティストを削除)" do
+    log_in_as @user
     @arthist.debut = true
+    @arthist.debut_date = Date.today.prev_month
     @arthist.save
-    if Date.today == Time.current.beginning_of_month
+    if Date.today == Date.today.beginning_of_month
       assert_difference 'Arthist.count', -1 do
         delete arthist_path(id: 1)
       end

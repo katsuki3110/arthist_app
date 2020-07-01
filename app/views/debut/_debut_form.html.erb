@@ -1,10 +1,10 @@
 <% if @arthist.debut? %>
   <%= link_to 'Congratulations!', debut_path(@arthist), {class: "btn undebut_btn",
-                                               method: :patch,
-                                               remote: true} %>
+                                                         method: :patch,
+                                                         remote: true} %>
 <% else %>
   <%= link_to 'Debut!', debut_path(id: @arthist.id, debut_flg: "1"), {class: "btn debut_btn",
-                                                                           method: :patch,
-                                                                           remote: true,
-                                                                           data: { confirm: "デビューした場合は、来月の1日にアーティスト情報が全て削除されます。"}} %>
+                                                                      method: :patch,
+                                                                      remote: true,
+                                                                      data: { confirm: "デビューした場合は、来月の1日にアーティスト情報が全て削除されます。"}} %>
 <% end %>
