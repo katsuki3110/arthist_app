@@ -465,6 +465,37 @@ li{
   margin: 0 auto;
 }
 
+
+//*index_mobile*
+
+@media (max-width: 670px){
+  .arthists_inner h1{
+    font-size: 30px;
+    margin-top: 150px;
+  }
+
+  .arthists_debutBtn{
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+  }
+
+  .arthists_items{
+    width: auto;
+    text-align: center;
+    margin: 50px auto 80px;
+  }
+
+  .arthists_item{
+    margin: 15px auto;
+    text-align: center;
+  }
+}
+
+
+
+
+
 //*show*
 
 .arthist_edit{
@@ -521,6 +552,32 @@ li{
 }
 
 
+//*show_mobile*
+
+@media (max-width: 670px){
+  .arthist_edit{
+    top: 152px;
+    transform: translate(110px, 0);
+    font-size: 15px;
+  }
+
+  .arthist_delete{
+    top: 152px;
+    transform: translate(65px, 0);
+    font-size: 15px;
+  }
+
+  .arthist_show_wrapper{
+    width: 300px;
+    margin: 180px auto 0;
+  }
+
+}
+
+
+
+
+
 //*post*
 
 .arthistPost_inner h1{
@@ -565,6 +622,40 @@ li{
   font-size: 15px;
   padding: 5px 0;
 }
+
+
+//*post_mobile*
+
+@media (max-width: 670px){
+  .arthistPost_inner h1{
+    font-size: 30px;
+    margin-top: 150px;
+  }
+
+  .arthistPost_label{
+    font-size: 13px;
+    transform: translate(-130px, -25px);
+  }
+
+  .arthistPost_field{
+    width: 270px;
+    font-size: 15px;
+    margin: 0 auto 35px;
+  }
+
+  .arthist_btn{
+    width: 270px;
+    margin: 0 auto;
+    font-size: 13px;
+    padding: 5px 0;
+  }
+
+}
+
+
+
+
+
 
 //*edit*
 
@@ -690,6 +781,26 @@ li{
   border: 1px solid #444444;
   text-decoration: none;
 }
+
+//*update_mobile*
+@media (max-width: 670px){
+  .undebut_btn{
+    width: 150px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 15px;
+  }
+
+  .debut_btn{
+    width: 150px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 15px;
+  }
+}
+
+
+
 
 
 
