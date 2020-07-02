@@ -1,9 +1,11 @@
 <div class="sings_item">
   <div class="sings_details">
     <% if @arthist_flg.present? %>
-    <div class="arthist_singName_wrapper">
-      <%= sing.name %>
-    </div>
+      <div class="arthist_singName_wrapper">
+        <div class="arthist_singName">
+          <%= sing.name %>
+        </div>
+      </div>
     <% elsif @sings_flg.present? %>
       <div class="sings_singName_wrapper">
         <div class="sings_singName">
