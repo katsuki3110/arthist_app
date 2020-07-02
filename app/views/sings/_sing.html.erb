@@ -6,7 +6,9 @@
     </div>
     <% elsif @sings_flg.present? %>
       <div class="sings_singName_wrapper">
-        <%= sing.name %>
+        <div class="sings_singName">
+          <%= sing.name %>
+        </div>
       </div>
       <span>／</span>
       <div class="sings_arthistName_wrapper">
@@ -15,22 +17,23 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="video_wrapper">
     <% if sing.video_flg == 1 %>
-      <iframe width="500" height="300" src="https://www.youtube.com/embed/<%= sing.link %>" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/<%= sing.link %>" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% elsif sing.video_flg == 2 %>
-      <iframe width="500" height="300" src="https://instagram.com/p/<%= sing.link %>/embed" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://instagram.com/p/<%= sing.link %>/embed" frameborder="0" scrolling="no"></iframe>
     <% end %>
+
+    <% if @like_flg != "1" %>
+      <div class="like" id="like-<%= sing.id %>">
+        <%= render 'likes/like_form', sing: sing %>
+      </div>
+    <% end %>
+
+    <% if current_user.present? && current_user.id == sing.user_id %>
+      <%= link_to "削除", sing_path(sing), {class: "sings_delete", method: :delete, data:{confirm: "削除しますか？"}} %>
+    <% end %>
+
   </div>
-
-  <% if @like_flg != "1" %>
-    <div class="like" id="like-<%= sing.id %>">
-      <%= render 'likes/like_form', sing: sing %>
-    </div>
-  <% end %>
-
-  <% if current_user.present? && current_user.id == sing.user_id %>
-    <%= link_to "削除", sing_path(sing), {class: "sings_delete", method: :delete, data:{confirm: "削除しますか？"}} %>
-  <% end %>
 
 </div>
