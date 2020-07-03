@@ -10,19 +10,19 @@
           <i class="fas fa-2x fa-camera arthistEdit_fontImage"></i>
         </div>
         <div class="arthistEdit_contents">
-          <div>
-            <%= form.label :アーティスト名, {class: "form_label"} %>
+          <div class="arthistEdit_form">
+            <%= form.label :アーティスト名, {class: "form_label arthistEdit_label"} %>
             <%= form.text_field :name, {class: "form_field arthistEdit_field",
                                         autocomplete: "off",
                                         maxlength: 30} %>
           </div>
-          <div>
-            <%= form.label :instagram, {class: "form_label"} %>
+          <div class="arthistEdit_form">
+            <%= form.label :instagram, {class: "form_label arthistEdit_label"} %>
             <%= form.text_field :instagram_link, {class: "form_field arthistEdit_field",
                                                   autocomplete: "off"} %>
           </div>
-          <div>
-            <%= form.label :youtube, {class: "form_label"} %>
+          <div class="arthistEdit_form">
+            <%= form.label :youtube, {class: "form_label arthistEdit_label"} %>
             <%= form.text_field :youtube_link, {class: "form_field arthistEdit_field",
                                                 autocomplete: "off"} %>
           </div>

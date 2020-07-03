@@ -744,16 +744,50 @@ li{
   margin-top: 10px;
 }
 
-.arthistUpload_inner h1{
-  margin-top: 135px;
-  text-align: center;
+
+//*edit_mobile*
+@media (max-width: 670px){
+  .arthistEdit_modal{
+    display: block;
+    width: 80%;
+    top: 100px;
+    left: 50%;
+  }
+
+  .arthistEdit_image{
+    width: 100%;
+  }
+
+  .arthistEdit_contents{
+    margin-left: 0;
+  }
+
+  .arthistEdit_form{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .arthistEdit_label{
+    font-size: 13px;
+  }
+
+  .arthistEdit_field{
+    width: 100%;
+    margin: 5px auto 30px;
+    font-size: 15px;
+  }
+
+  .arthistEdit_btn{
+    display: block;
+    width: 90%;
+    height: 35px;
+    margin: 10px auto 0;
+  }
 }
 
-.arthistUpload_modal{
-  margin-top: 100px;
-  height: 100px;
-  text-align: center;
-}
+
+
+
 
 
 
