@@ -28,6 +28,11 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  def authenticated?(remember_token)
+    #DBに登録されているremember_digestとcookiesのremember_tokenを突き合わせる
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
   def forget
     update_attribute(:remember_digest, nil)
   end
