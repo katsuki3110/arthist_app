@@ -5,8 +5,14 @@
 
       <div class="arthistEdit_modal">
         <div class="arthistEdit_image_wrapper">
+          <% if @arthist.image.present? %>
           <%= link_to image_tag(@arthist.image_url, class: "arthistEdit_image"),
                       edit_image_arthist_path(@arthist) %>
+          <% else %>
+          <%= link_to image_tag("/assets/default_arthist.png", class: "arthistEdit_image"),
+                      edit_image_arthist_path(@arthist) %>
+          <% end %>
+
           <i class="fas fa-2x fa-camera arthistEdit_fontImage"></i>
         </div>
         <div class="arthistEdit_contents">
